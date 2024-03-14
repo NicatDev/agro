@@ -19,5 +19,5 @@ def home(request):
         'products':products,
         'blogs':blogs
     }
-    return render(request,'index.html',context)
+    return render(request,'index-2.html',context)
 
