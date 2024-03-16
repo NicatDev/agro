@@ -36,14 +36,43 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
-class Product(BaseMixin,MetaMixin):
+class Product(MetaMixin,BaseMixin):
     name = models.CharField(max_length = 200)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    discount_percent = models.SmallIntegerField(default=0)
     description = models.TextField()
-    stock_weight = models.PositiveBigIntegerField(default=0)
-    category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,blank=True)
+    stock = models.BooleanField(default=True)
+    category = models.ManyToManyField(Category)
+    new = models.BooleanField(default=False)
+    best_seller = models.BooleanField(default=False)
+    most_searched = models.BooleanField(default=False)
+    product_code = models.CharField(max_length = 300,null=True,blank=True)
 
+    
     def __str__(self):
-        return self.name    
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            new_slug = get_slug(self.name)
+            if Product.objects.filter(slug=new_slug).exists():
+                count = 0
+                while Product.objects.filter(slug=new_slug).exists():
+                    new_slug = f"{get_slug(self.name)}-{count}"
+                    count += 1
+            self.slug = new_slug
+        super(Product, self).save(*args, **kwargs)
+    
+    def get_main_image(self):
+        main_image = self.images.first()
+        return main_image.image if main_image else None
+    
+    def get_discount_price(self):
+        if self.discount_percent>0:
+            discounted = self.price * (100-self.discount_percent) /100
+        else:
+            discounted = self.price
+        return discounted
 
 class Images(models.Model):
     image = models.ImageField()
