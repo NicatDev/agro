@@ -22,7 +22,25 @@ class MetaMixin(models.Model):
     class Meta:
         abstract = True
 
+class BlogCategory(BaseMixin):
+    name = models.CharField(max_length = 200)
+
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            new_slug = get_slug(self.name)
+            if BlogCategory.objects.filter(slug=new_slug).exists():
+                count = 0
+                while BlogCategory.objects.filter(slug=new_slug).exists():
+                    new_slug = f"{get_slug(self.name)}-{count}"
+                    count += 1
+            self.slug = new_slug
+        super(BlogCategory, self).save(*args, **kwargs)
+    
 class Blog(BaseMixin,MetaMixin):
+    category = models.ForeignKey(BlogCategory,on_delete = models.CASCADE)
     title = models.CharField(max_length=200)
     content = models.TextField()
     image = models.ImageField()
@@ -30,11 +48,22 @@ class Blog(BaseMixin,MetaMixin):
     def __str__(self):
         return self.title
     
-class Category(models.Model):
+class Category(BaseMixin):
     name = models.CharField(max_length = 200)
     
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            new_slug = get_slug(self.name)
+            if Category.objects.filter(slug=new_slug).exists():
+                count = 0
+                while Category.objects.filter(slug=new_slug).exists():
+                    new_slug = f"{get_slug(self.name)}-{count}"
+                    count += 1
+            self.slug = new_slug
+        super(Category, self).save(*args, **kwargs) 
     
 class Product(MetaMixin,BaseMixin):
     name = models.CharField(max_length = 200)
@@ -42,13 +71,13 @@ class Product(MetaMixin,BaseMixin):
     discount_percent = models.SmallIntegerField(default=0)
     description = models.TextField()
     stock = models.BooleanField(default=True)
-    category = models.ManyToManyField(Category)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE,null=True,blank=True,related_name="products")
     new = models.BooleanField(default=False)
     best_seller = models.BooleanField(default=False)
     most_searched = models.BooleanField(default=False)
     product_code = models.CharField(max_length = 300,null=True,blank=True)
 
-    
+
     def __str__(self):
         return self.name
 
@@ -76,10 +105,10 @@ class Product(MetaMixin,BaseMixin):
 
 class Images(models.Model):
     image = models.ImageField()
-    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='images')
 
     def __str__(self):
-        return self.name
+        return self.product.name
 
 class Service(BaseMixin,MetaMixin):
     name = models.CharField(max_length = 200)

@@ -10,11 +10,9 @@ local_settings.py
 db.sqlite3
 *.sqlite3
 
-# Media files
-media/
 
-# Static files
-staticfiles/
+
+
 
 # Virtual environment
 myenv/
@@ -27,21 +25,18 @@ __pycache__/
 
 # Logs and databases
 *.log
-*.sqlite
+
 
 # Secret key
 *.secret
 
 # IDE-specific files
-.vscode/
+
 .idea/
 
 # macOS
 .DS_Store
 
-# Windows
-Thumbs.db
-Desktop.ini
 
 # Python pycache
 __pycache__/

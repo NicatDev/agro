@@ -11,10 +11,12 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
 def home(request):
-    services = Service.objects.all()[:5]
-    products = Product.objects.all()[:5]
-    blogs = Blog.objects.all()[:3]
+    services = Service.objects.all()[:3]
+    products = Product.objects.all().order_by('-created_at')[:4]
+    blogs = Blog.objects.all()[:2]
+    categories = Category.objects.all()
     context = {
+        'categories':categories,
         'services':services,
         'products':products,
         'blogs':blogs
