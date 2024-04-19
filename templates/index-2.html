@@ -67,7 +67,7 @@
                     <!-- web menubar start-->
                     <div class="webMenu d-none d-lg-block">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="index.html"><img class="logo_muslum" src="{% static 'assets/images/logo/muslimagro.jpg' %}"
+                            <a class="navbar-brand" href="index.html"><img style="max-height:60px" class="logo_muslum" src="{% static 'assets/images/logo/muslimagro.jpg' %}"
                                     alt="image_not_found"></a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -76,228 +76,14 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav main_menu_list m-auto">
-                                    <li class="nav-item nav_item_has_child px-2 dropdown">
-                                        <a class="nav-link active" aria-current="page" href="#" id="home_submenu"
-                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
-                                        <div class="nav_item_submenu dropdown-menu" aria-labelledby="home_submenu"
-                                            style="background-image: url({% static 'assets/images/mega/mega3.png' %})">
-                                            <div class="nav_submenu_cont">
-                                                <h4>All Home Pages</h4>
-                                                <ul class="list-unstyled ms-3">
-                                                    <li>
-                                                        <a href="index.html">Home V.1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home V.2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home V.3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home V.4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Home V.5</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Home V.6</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item nav_item_has_child px-2 dropdown">
-                                        <a class="nav-link" href="#" id="shop_submenu" role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                                        <div class="nav_item_submenu dropdown-menu" aria-labelledby="shop_submenu"
-                                            style="background-image: url({% static 'assets/images/mega/mega3.png' %})">
-                                            <div class="nav_submenu_cont">
-                                                <h4>All Shop Pages</h4>
-                                                <ul class="list-unstyled ms-3">
-                                                    <li>
-                                                        <a href="shop-list-sidebar.html">
-                                                            <span class="item_title text-start">Shop Sidebar</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="shop-list.html">
-                                                            <span class="item_title text-start">Shop List</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="checkout.html">
-                                                            <span class="item_title text-start">Checkout</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="vendor.html">
-                                                            <span class="item_title text-start">Vendor</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="product-detail.html">
-                                                            <span class="item_title text-start">Product Details</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="product-detail-2.html">
-                                                            <span class="item_title text-start">Product Detail 2</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item nav_item_has_child px-2 dropdown">
-                                        <a class="nav-link" href="#" id="blog_submenu" role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                        <div class="nav_item_submenu dropdown-menu" aria-labelledby="blog_submenu"
-                                            style="background-image: url({% static 'assets/images/mega/mega3.png' %})">
-                                            <div class="nav_submenu_cont">
-                                                <h4>All Blog Pages</h4>
-                                                <ul class="list-unstyled ms-3">
-                                                    <li>
-                                                        <a href="blog-details.html">Blog Details</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="blog-grid.html">Blog Grid</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="blog-list.html">Blog List 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Blog List 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Blog List 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Blog List 4</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                    <li class="nav-item nav_item_has_child px-2">
+                                        <a class="nav-link" href="{% url 'home' %}">Əsas səhifə</a>
                                     </li>
                                     <li class="nav-item nav_item_has_child px-2">
-                                        <a class="nav-link" href="#!">Portfolio</a>
+                                        <a class="nav-link" href="{% url 'shop' %}">Məhsullar</a>
                                     </li>
-                                    <li class="nav-item nav_item_has_child px-2 dropdown">
-                                        <a class="nav-link" href="#" id="page_submenu" role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-                                        <div class="nav_item_megamenu dropdown-menu" aria-labelledby="page_submenu">
-                                            <div class="container p-0">
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <div class="mega_thumb_area position-relative"
-                                                            style="background-image: url({% static 'assets/images/sales/large-set.jpg' %});">
-                                                            <div class="thumb_text">
-                                                                <h2>
-                                                                    <font>100%</font> Pure <br> Natural Vegetable
-                                                                </h2>
-                                                                <span>Fresh Vegetables Sale 30% Off</span>
-                                                                <a href="#"><button type="button"
-                                                                        class="btn custom_btn rounded-pill text-white mt-3">View
-                                                                        More</button></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="mega_item_area ms-5 my-4 position-relative">
-                                                            <h4>All Inner Page</h4>
-                                                            <ul class="list-unstyled">
-                                                                <li>
-                                                                    <a href="cart.html">Cart Page</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="faqs.html">Faqs Page</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="about-us.html">About Us V.1</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="about-us-2.html">About Us V.2</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="checkout.html">Checkout Page</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="compare.html">Compare Page</a>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="mega_item_thumb1 position-absolute">
-                                                                <img src="{% static 'assets/images/mega/mega1.png' %}"
-                                                                    alt="image_not_found">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="mega_item_area my-4 position-relative">
-                                                            <h4>All Inner Page </h4>
-                                                            <ul class="list-unstyled">
-                                                                <li>
-                                                                    <a href="vendor.html">
-                                                                        <span class="item_title text-start">Vendor
-                                                                            Page</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="vendor-profile.html">
-                                                                        <span class="item_title text-start">Vendor
-                                                                            Profile</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="vendor-dashboard.html">
-                                                                        <span class="item_title text-start">Vendor
-                                                                            Dashboard</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-detail.html">
-                                                                        <span class="item_title text-start">Product
-                                                                            Details V.1</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="product-detail-2.html">
-                                                                        <span class="item_title text-start">Product
-                                                                            Details V.2</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="mega_item_thumb2 position-absolute">
-                                                                <img src="{% static 'assets/images/mega/mega2.png' %}"
-                                                                    alt="image_not_found">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item nav_item_has_child dropdown">
-                                        <a class="nav-link" href="#" id="contact_submenu" role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">Contacts</a>
-                                        <div class="nav_item_submenu dropdown-menu" aria-labelledby="contact_submenu"
-                                            style="background-image: url({% static 'assets/images/mega/mega3.png' %})">
-                                            <div class="nav_submenu_cont">
-                                                <h4>All Contact Pages</h4>
-                                                <ul class="list-unstyled">
-                                                    <li>
-                                                        <a href="contact-us.html">Contact Us</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Contact Us-2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Contact Us-3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Contact Us-4</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                    <li class="nav-item nav_item_has_child px-2">
+                                        <a class="nav-link" href="{% url 'about' %}">Haqqımızda</a>
                                     </li>
                                 </ul>
                             </div>
@@ -351,7 +137,7 @@
                     <!-- mobile menubar start -->
                     <div class="mobileMenu d-block d-lg-none">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="index-2.html"><img src="{% static 'assets/images/logo/logo.png' %}"
+                            <a class="navbar-brand" href="index-2.html"><img style="max-height:60px;" src="{% static 'assets/images/logo/muslimagro.jpg' %}"
                                     alt="image_not_found"></a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                                 data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"
@@ -645,7 +431,7 @@
                                         alt="image_not_found">
                                 </div>
                                 <div class="banner_title2">
-                                    <h1>Organik Meyvə & Tərəvəz bişirin<font class="text-effect">
+                                    <h1>Organik Meyvə və Tərəvəz <br><font class="text-effect">
                                             <span>S</span><span>a</span><span>ğ</span><span>l</span><span>a</span><span>m</span>
                                         </font>
                                     </h1>
@@ -680,7 +466,7 @@
                                     <div class="service_content_icon rounded-pill me-3">
                                         <img src="{% static 'assets/images/icons/green-leaf.jpeg' %}" alt="image_not_found">
                                     </div>
-                                    <h6 class="service_content_title">Organic məhsullar</h6>
+                                    <h6 class="service_content_title">Orqanik məhsullar</h6>
                                 </div>
                             </div>
                             <div class="col-6 col-sm-4 col-lg-3">
@@ -897,103 +683,6 @@
             <!-- trend section end -->
 
 
-            <!-- quality section start -->
-            <section class="quality_section2 position-relative sec_space_small" data-aos="fade-up"
-                data-aos-duration="2000">
-                <div class="quality_section_wrap2">
-                    <div class="container">
-                        <div class="quality_top_content text-center">
-                            <div class="quality_sub_title d-flex justify-content-center align-items-center pb-2">
-                                <i class="far fa-circle"></i>
-                                <i class="far fa-circle"></i>
-                                <i class="far fa-circle"></i>
-                                <span class="px-2">FRESH FROM OUR FARM</span>
-                                <i class="far fa-circle"></i>
-                                <i class="far fa-circle"></i>
-                                <i class="far fa-circle"></i>
-                            </div>
-                            <div class="quality_top_title2 pb-5">
-                                <h2>Fresh Produce</h2>
-                            </div>
-                        </div>
-                        <div class="quality_inner_content2 position-relative">
-                            <div
-                                class="quality_content2_img1 position-absolute d-flex justify-content-center align-items-center text-end" data-aos="fade-left"
-                                data-aos-duration="1000">
-                                <div class="quality_text">
-                                    <div class="quality_title2">
-                                        <h4 class="text-uppercase">ingredients</h4>
-                                    </div>
-                                    <div class="quality_desc2">
-                                        <p>Organic soybean oil ( Glycine saja Cold Pressed & Refined</p>
-                                    </div>
-                                </div>
-                                <div class="quality_img2 d-flex justify-content-center align-items-center ms-4">
-                                    <img src="{% static 'assets/images/category/cat6.png' %}" alt="image_not_found">
-                                </div>
-                            </div>
-                            <div
-                                class="quality_content2_img2 position-absolute d-flex justify-content-center align-items-center" data-aos="fade-left"
-                                data-aos-duration="1500">
-                                <div class="quality_img2 d-flex justify-content-center align-items-center me-4">
-                                    <img src="{% static 'assets/images/category/cat9.png' %}" alt="image_not_found">
-                                </div>
-                                <div class="quality_text">
-                                    <div class="quality_title2">
-                                        <h4 class="text-uppercase">Recommended uses</h4>
-                                    </div>
-                                    <div class="quality_desc2">
-                                        <p>Organic soybean oil ( Glycine saja Cold Pressed & Refined</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="quality_middle_gallery2 img_moving_anim1 text-center">
-                                <img src="{% static 'assets/images/category/cat13.png' %}" alt="image_not_found">
-                            </div>
-                            <div
-                                class="quality_content2_img3 position-absolute d-flex justify-content-center align-items-center" data-aos="fade-right"
-                                data-aos-duration="1000">
-                                <div class="quality_text text-end">
-                                    <div class="quality_title2 ">
-                                        <h4 class="text-uppercase">Caution</h4>
-                                    </div>
-                                    <div class="quality_desc2">
-                                        <p>For external use only. Keep ou of reach of children. Avoid contact </p>
-                                    </div>
-                                </div>
-                                <div class="quality_img2 d-flex justify-content-center align-items-center ms-4">
-                                    <img src="{% static 'assets/images/category/cat9.png' %}" alt="image_not_found">
-                                </div>
-                            </div>
-                            <div
-                                class="quality_content2_img4 position-absolute d-flex justify-content-center align-items-center" data-aos="fade-right"
-                                data-aos-duration="1500">
-                                <div class="quality_img2 d-flex justify-content-center align-items-center me-4">
-                                    <img src="{% static 'assets/images/category/cat11.png' %}" alt="image_not_found">
-                                </div>
-                                <div class="quality_text">
-                                    <div class="quality_title2">
-                                        <h4 class="text-uppercase">Promotes Relaxation</h4>
-                                    </div>
-                                    <div class="quality_desc2">
-                                        <p>US Organic’s Soybean oil is beneficial for all skin types It contains rich
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- quality side img start -->
-                <img class="quality2_left_thumb position-absolute" src="{% static 'assets/images/shapes/shape19.png' %}"
-                    alt="image_not_found">
-                <img class="quality2_righttop_thumb position-absolute" src="{% static 'assets/images/shapes/shape7.png' %}"
-                    alt="image_not_found">
-                <img class="quality2_rightbottom_thumb position-absolute" src="{% static 'assets/images/shapes/shape10.png' %}"
-                    alt="image_not_found">
-                <!-- quality side img end -->
-            </section>
-            <!-- quality section end -->
 
             <!-- sale2 section start -->
             <section class="sale2_section" data-aos="fade-up" data-aos-duration="2000">
@@ -1007,24 +696,23 @@
                                     <div class="sale2_sub_title pb-3 position-relative">
                                         <img class="sub_title_bg" src="{% static 'assets/images/shapes/shape2.png' %}"
                                             alt="image_not_found">
-                                        <h6 class="text-white text-uppercase position-absolute">LIVE ORGANIC. LIVE
-                                            HEALTHY.</h6>
+                                        <h6 class="text-white text-uppercase position-absolute">Sağlam həyat yaşa</h6>
                                     </div>
                                     <div class="sale2_title py-2">
-                                        <h2>Sale 68% Off <br> All <font class="text-effect">
-                                                <span>F</span><span>r</span><span>u</span><span>i</span><span>t</span><span>e</span> <span>P</span><span>r</span><span>o</span><span>d</span><span>u</span><span>c</span><span>t</span><span>s</span>
+                                        <h2>68% Endirim <br> Bütün <font class="text-effect">
+                                                <span>M</span><span>E</span><span>Y</span><span>V</span><span>Ə</span><span>L</span><span>Ə</span><span>R</span><span>Ə</span>
                                              </font>
                                         </h2>
                                     </div>
                                     <div class="sale2_desc">
-                                        <p>Morbi eget congue lectus. Donec eleifend ultricies urna et euismod. Sed
-                                            consectetur tellus eget odio aliquet, vel vestibulum tellus sollicitudin.
-                                            Morbi eget congue lectus. Donec eleifend ultricies urna et euismod. Sed
-                                            consectetur tellus eget odio aliquet,</p>
+                                        <p>Organik mehsullar təbii mənbəli, kimyəvi gübrə və pestisidlər istifadə edilməyən, bərpa edilən 
+                                            və ya minimal prosesslərdən keçirilən məhsullardır. Bu məhsullar insan sağlamlığına, ətraf mühitə 
+                                            və əkin sahəsinin təbii ekosistemlərinə təsir etməmişdir. Organik məhsullar tərkibində 
+                                            sintetik tərkib maddələri olmayan təbii maddələri içərir və qida məhsulları, meyvə və tərəvəz, toxumlu kimi çeşidlənir.</p>
                                     </div>
                                     <div class="sale2_btn load_more_3">
                                         <a href="#!"><button type="button"
-                                                class="btn custom_btn rounded-pill px-5 py-3 text-white">Read More <i
+                                                class="btn custom_btn rounded-pill px-5 py-3 text-white">Daha ətraflı <i
                                                     class="fas fa-long-arrow-alt-right"></i></button></a>
                                     </div>
                                 </div>
@@ -1052,7 +740,7 @@
                         </div>
                         <div class="col-lg-6 text-center text-lg-end">
                             <a href="#!"><button type="button"
-                                    class="btn custom_btn rounded-pill px-4 py-2  text-white">Explore More <i
+                                    class="btn custom_btn rounded-pill px-4 py-2  text-white">Daha çox<i
                                         class="fas fa-long-arrow-alt-right"></i></button></a>
                         </div>
                     </div>
@@ -1108,7 +796,7 @@
 
             <!-- blog section start -->
             {% if blogs %}
-            <section class="blog_section sec_space_xlarge position-relative" data-aos="fade-up"
+            <section style="padding-bottom:20px;" class="blog_section sec_space_xlarge position-relative" data-aos="fade-up"
                 data-aos-duration="2000">
                 <div class="blog_section_wrap">
                     <div class="container-fluid-full ">
@@ -1169,50 +857,7 @@
             {% endif %}
             <!-- blog section end -->
 
-            <!-- sale2 section start -->
-            <section class="sale2_section" data-aos="fade-up" data-aos-duration="2000">
-                <div class="sale2_section_wrap sec_space_small d-flex justify-content-center align-items-center"
-                    style="background-image: url({% static 'assets/images/banner/banner5.png' %})">
-                    <div class="container">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-lg-6">
-                                <div class="sale_pro_thumb d-none d-lg-block">
-                                    <img src="{% static 'assets/images/product/product19.png' %}" alt="image_not_found">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="sale2_content_wrap ps-3">
-                                    <div class="product_sec_sub_title d-flex align-items-center pb-2">
-                                        <i class="far fa-circle"></i>
-                                        <i class="far fa-circle"></i>
-                                        <i class="far fa-circle"></i>
-                                        <span class="px-2 text-uppercase">tast of nature</span>
-                                    </div>
-                                    <div class="sale2_title py-2">
-                                        <h2>Sale 68% Off <br> All <font class="text-effect">
-                                            <span>F</span><span>r</span><span>u</span><span>i</span><span>t</span><span>e</span></font> Products</h2>
-                                        
-                                    </div>
-                                    <div class="sale2_desc">
-                                        <p>Morbi eget congue lectus. Donec eleifend ultricies urna et euismod. Sed
-                                            consectetur tellus eget odio aliquet, vel vestibulum tellus sollicitudin.
-                                        </p>
-                                    </div>
-                                    <div class="countdown_box py-2">
-                                        <ul class="countdown_timer ul_li" data-countdown="2023/3/24"></ul>
-                                    </div>
-                                    <div class="sale2_btn load_more_1">
-                                        <a href="#!"><button type="button"
-                                                class="btn custom_btn rounded-pill px-5 py-3  text-white">Explore More
-                                                <i class="fas fa-long-arrow-alt-right"></i></button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- sale2 section end -->
+          
 
             <!-- testimonial-3 section start  -->
             <section class="testimonial3_sec sec_space_large sec_top_100" data-aos="fade-up" data-aos-duration="2000">
@@ -1297,12 +942,12 @@
                         <i class="far fa-circle"></i>
                         <i class="far fa-circle"></i>
                         <i class="far fa-circle"></i>
-                        <span class="px-2 text-uppercase">fresh from</span>
+                        <span class="px-2 text-uppercase">Sağlam həyatı</span>
                         <i class="far fa-circle"></i>
                         <i class="far fa-circle"></i>
                         <i class="far fa-circle"></i>
                     </div>
-                    <h2 class="instagram_title pb-5 text-center">Follow on Instagram</h2>
+                    <h2 class="instagram_title pb-5 text-center">Instagramda izlə</h2>
                     <ul class="zoom-gallery instagram_image_content ul_li slideshow4_slider"
                         data-slick='{"dots": false}'>
                         <li>
@@ -1367,7 +1012,7 @@
                     <div
                         class="footer_top_content d-flex flex-column flex-lg-row justify-content-between align-items-center">
                         <div class="footer_top_logo">
-                            <a href="index-2.html"><img src="{% static 'assets/images/logo/logo2.png' %}" alt="image_not_found"></a>
+                            <a href="index-2.html"><img style="max-height:80px" src="{% static 'assets/images/logo/muslimagro.jpg' %}" alt="image_not_found"></a>
                         </div>
                         <div class="footer_top_subs position-relative">
                             <input class="rounded-pill" type="search" name="search" placeholder="Your Phone Number">

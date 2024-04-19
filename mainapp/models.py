@@ -40,17 +40,30 @@ class BlogCategory(BaseMixin):
         super(BlogCategory, self).save(*args, **kwargs)
     
 class Blog(BaseMixin,MetaMixin):
-    category = models.ForeignKey(BlogCategory,on_delete = models.CASCADE)
+    category = models.ForeignKey(BlogCategory,on_delete = models.CASCADE,related_name='blogs')
     title = models.CharField(max_length=200)
     content = models.TextField()
+    content_bottom = models.ImageField(null=True,blank=True)
     image = models.ImageField()
 
     def __str__(self):
         return self.title
     
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            new_slug = get_slug(self.title)
+            if Blog.objects.filter(slug=new_slug).exists():
+                count = 0
+                while Blog.objects.filter(slug=new_slug).exists():
+                    new_slug = f"{get_slug(self.title)}-{count}"
+                    count += 1
+            self.slug = new_slug
+        super(Blog, self).save(*args, **kwargs)
+    
 class Category(BaseMixin):
     name = models.CharField(max_length = 200)
-    
+    image = models.ImageField(null=True,blank=True)
+
     def __str__(self):
         return self.name
 
@@ -63,20 +76,21 @@ class Category(BaseMixin):
                     new_slug = f"{get_slug(self.name)}-{count}"
                     count += 1
             self.slug = new_slug
-        super(Category, self).save(*args, **kwargs) 
-    
+        super(Category, self).save(*args, **kwargs)
+
 class Product(MetaMixin,BaseMixin):
     name = models.CharField(max_length = 200)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount_percent = models.SmallIntegerField(default=0)
     description = models.TextField()
     stock = models.BooleanField(default=True)
+    stock_value = models.IntegerField(null=True,blank=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE,null=True,blank=True,related_name="products")
     new = models.BooleanField(default=False)
     best_seller = models.BooleanField(default=False)
     most_searched = models.BooleanField(default=False)
     product_code = models.CharField(max_length = 300,null=True,blank=True)
-
+    location = models.CharField(max_length=300,null=True,blank=True)
 
     def __str__(self):
         return self.name
@@ -96,6 +110,13 @@ class Product(MetaMixin,BaseMixin):
         main_image = self.images.first()
         return main_image.image if main_image else None
     
+    def get_secondary_image(self):
+        if self.images.count() > 1:
+            image = self.images[1]
+        else:
+            image = self.images.first()
+        return image.image if image else None
+
     def get_discount_price(self):
         if self.discount_percent>0:
             discounted = self.price * (100-self.discount_percent) /100
@@ -119,14 +140,26 @@ class Service(BaseMixin,MetaMixin):
         return self.name
     
 class Message(models.Model):
-    full_name = models.CharField(max_length = 200)
+    name = models.CharField(max_length = 200)
+    surname = models.CharField(max_length = 200)
     email = models.EmailField()
-    subject = models.CharField(max_length = 200)
+    phone = models.CharField(max_length = 200)
     message = models.TextField()
 
     def __str__(self):
         return self.full_name    
 
 
+class Partner(models.Model):
+    image = models.ImageField()
+    name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.name
 
+class Instagram(models.Model):
+    image = models.ImageField()
+    href = models.CharField(max_length = 200)
+
+    def __str__(self):
+        return self.name
