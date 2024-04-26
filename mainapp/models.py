@@ -26,7 +26,7 @@ class BlogCategory(BaseMixin):
     name = models.CharField(max_length = 200)
 
     def __str__(self):
-        return self.name
+        return f'- {self.name}'
     
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -47,7 +47,7 @@ class Blog(BaseMixin,MetaMixin):
     image = models.ImageField()
 
     def __str__(self):
-        return self.title
+        return f'- {self.title}'
     
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -60,12 +60,15 @@ class Blog(BaseMixin,MetaMixin):
             self.slug = new_slug
         super(Blog, self).save(*args, **kwargs)
     
+    def get_absolute_url(self):
+        return reverse('blogSingle', kwargs={'slug': self.slug})
+    
 class Category(BaseMixin):
     name = models.CharField(max_length = 200)
     image = models.ImageField(null=True,blank=True)
 
     def __str__(self):
-        return self.name
+        return f'- {self.name}'
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -93,7 +96,7 @@ class Product(MetaMixin,BaseMixin):
     location = models.CharField(max_length=300,null=True,blank=True)
 
     def __str__(self):
-        return self.name
+        return f'- {self.name}'
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -124,12 +127,15 @@ class Product(MetaMixin,BaseMixin):
             discounted = self.price
         return discounted
 
+    def get_absolute_url(self):
+        return reverse('shopSingle', kwargs={'slug': self.slug})
+    
 class Images(models.Model):
     image = models.ImageField()
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='images')
 
     def __str__(self):
-        return self.product.name
+        return f'- {self.product.name}'
 
 class Service(BaseMixin,MetaMixin):
     name = models.CharField(max_length = 200)
@@ -137,7 +143,7 @@ class Service(BaseMixin,MetaMixin):
     image = models.ImageField()
 
     def __str__(self):
-        return self.name
+        return f'- {self.name}'
     
 class Message(models.Model):
     name = models.CharField(max_length = 200)
@@ -147,7 +153,7 @@ class Message(models.Model):
     message = models.TextField()
 
     def __str__(self):
-        return self.full_name    
+        return f'- {self.name} - {self.surname}'    
 
 
 class Partner(models.Model):
@@ -155,11 +161,11 @@ class Partner(models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.name
+        return f'- {self.name}'
 
 class Instagram(models.Model):
     image = models.ImageField()
     href = models.CharField(max_length = 200)
 
     def __str__(self):
-        return self.name
+        return self.pk

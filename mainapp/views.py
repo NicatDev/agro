@@ -9,6 +9,41 @@ from django.db.models import Count
 from django.conf import settings
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+from django.utils.translation import activate, get_language
+
+def set_language(request, lang_code, url):
+    next_url = url or '/'  
+    print(next_url,'----')
+    if lang_code:
+        print(lang_code,'---')
+        activate(lang_code)
+        response = HttpResponseRedirect(next_url)
+        print(response,'-----')
+        response.set_cookie('django_language', lang_code)
+        translated_url = reverse('set_language')
+        print(translated_url,'-------------')
+        response['Location'] = translated_url  
+        print(response['Location'],'-------------')
+        return response
+        
+    else:  
+        default_language = request.LANGUAGE_CODE 
+        activate(default_language)
+        response = HttpResponseRedirect(next_url)
+        response.set_cookie('django_language', default_language)
+        translated_url = reverse('set_language')
+        response['Location'] = translated_url  
+        return response
+
+def set_language_form(request):
+
+    next_url = request.POST.get('next') or '/'
+    language = request.POST.get('language')
+    response = redirect(next_url)
+    if language:
+        response.set_cookie('django_language', language)
+    return response
+
 
 def home(request):
 
@@ -120,6 +155,13 @@ def contact(request):
 
     }
     return render(request,'contact-us.html',context)
+
+def services(request):
+
+    context = {
+
+    }
+    return render(request,'services.html',context)
 
 from .forms import Messageform
 import json

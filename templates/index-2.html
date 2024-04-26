@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+{% load i18n %}
+<html lang="az">
 
-
-<!-- Mirrored from jthemes.net/themes/html/organic/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 11:30:30 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home V.2 - Organic - Food E-commerce HTML Template</title>
-    <!-- favicon icon -->
+    <title>Müslimagro - Kənd təsərrüfatı məhsullarının topdan və pərakəndə satışı</title>
+
+    <meta name="description" content="Müslimagro - Kənd təsərrüfatı məhsullarının tam orqanik olaraq süfrənizə qədər çatdırılması və sizin razılığınız üçün xidmət göstərir. İstənilən meyvə, tərəvəz və bostan məhsullarının satışı">
+    <!-- favicon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" href="{% static 'assets/images/icons/favicon.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'assets/logogo.png' %}" type="image/x-icon">
 
     <!-- Include fontawesome cdn -->
     <link rel="stylesheet" href="../../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css' %}"
@@ -67,7 +68,7 @@
                     <!-- web menubar start-->
                     <div class="webMenu d-none d-lg-block">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="index.html"><img style="max-height:60px" class="logo_muslum" src="{% static 'assets/images/logo/muslimagro.jpg' %}"
+                            <a class="navbar-brand" href="{% url 'home' %}"><img style="max-height:60px" class="logo_muslum" src="{% static 'assets/logogo.png' %}"
                                     alt="image_not_found"></a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -77,58 +78,74 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav main_menu_list m-auto">
                                     <li class="nav-item nav_item_has_child px-2">
-                                        <a class="nav-link" href="{% url 'home' %}">Əsas səhifə</a>
+                                        <a class="nav-link" href="{% url 'home' %}">{% trans 'Əsas səhifə' %}</a>
                                     </li>
                                     <li class="nav-item nav_item_has_child px-2">
-                                        <a class="nav-link" href="{% url 'shop' %}">Məhsullar</a>
+                                        <a class="nav-link" href="{% url 'shop' %}">{% trans 'Məhsullar' %}</a>
                                     </li>
                                     <li class="nav-item nav_item_has_child px-2">
-                                        <a class="nav-link" href="{% url 'about' %}">Haqqımızda</a>
+                                        <a class="nav-link" href="{% url 'about' %}">{% trans 'Haqqımızda' %}</a>
+                                    </li>
+                                    <li class="nav-item nav_item_has_child px-2">
+                                        <a class="nav-link" href="{% url 'blogs' %}">{% trans 'Bloqlar' %}</a>
+                                    </li>
+                                    <li class="nav-item nav_item_has_child px-2">
+                                        <a class="nav-link" href="{% url 'contact' %}">{% trans 'Əlaqə' %}</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="navbar_user me-2">
                                 <div class="navbar_user_icon">
                                     <ul class="list-unstyled d-flex mb-0">
-                                        <li class="pe-2 position-relative">
-                                            <a href="#collapseExample" data-bs-toggle="collapse" href="#collapseExample"
-                                                role="button" aria-expanded="false" aria-controls="collapseExample"><i
-                                                    class="far fa-user" data-toggle="collapse" role="button"
-                                                    data-target="#use_deropdown" aria-expanded="false"
-                                                    aria-controls="use_deropdown"></i>
-                                            </a>
-                                            <!-- user profile start -->
-                                            <div id="collapseExample" class="collapse_dropdown collapse">
-                                                <div class="dropdown_content">
-                                                    <div class="profile_info clearfix">
-                                                        <div class="user_thumbnail">
-                                                            <img src="{% static 'assets/images/meta/meta1.png' %}"
-                                                                alt="image_not_found">
-                                                        </div>
-                                                        <div class="user_content">
-                                                            <h4 class="user_name">Jone Doe</h4>
-                                                            <span class="user_title">Seller</span>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="settings_options ul_li_block clearfix">
-                                                        <li><a href="#!"><i class="fas fa-user-circle"></i> Profile</a>
-                                                        </li>
-                                                        <li><a href="#!"><i class="fas fa-user-cog"></i> Settings</a>
-                                                        </li>
-                                                        <li><a href="#!"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                        {% get_current_language as LANGUAGE_CODE %}
+                                                    
+                                        {% get_available_languages as LANGUAGES %}
+                                        <li class="dropdown" >
+                                            <input type="checkbox" id="languageDropdown" class="dropdown-input">
+                                            <label   for="languageDropdown" style="text-transform: uppercase;margin-bottom:0px;margin-top:3px;" class="dropbtn">{{LANGUAGE_CODE}} <span style="text-align:center;font-size:12px"> ▼</span></label>
+                                            <ul id="myDropdown" class="dropdown-content">
+                                                {% for lang_code, lang_name in LANGUAGES %}
+                                                    <li style="margin:0px;padding:0px"><a style="display:inline-block;padding:8px 14px;color:gray; {% if lang_code == LANGUAGE_CODE %} color:black {% endif %}" href="{% url 'set_language' lang_code=lang_code url=request.get_full_path %}">{{ lang_name }}</a></li>
+                                                {% endfor %}
+                                            </ul>
                                         </li>
-                                        <li class="pe-2"><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li>
-                                            <a href="#!">
-                                                <i class="fas fa-shopping-bag position-relative"
-                                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                                    aria-controls="offcanvasRight"><span
-                                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span></i></a>
-                                        </li>
+                                        <style>
+                                            @media only screen and (min-width: 990px) and (max-width: 1112px) {
+                                            .search-icon-li{
+                                                display:none !important;
+                                            }
+                                            }
+                                            .dropdown-input {
+                                                display: none;
+                                            }
+                                        
+                                            .dropdown-content {
+                                                display: none !important;
+                                                position: absolute;
+                                                background-color: #f9f9f9;
+                                                min-width: 15px;
+                                                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                                z-index: 1;
+                                                list-style-type: none;
+                                                padding: 0;
+                                            }
+                                        
+                                            .dropdown-content li {
+                                                padding: 8px 12px;
+                                            }
+                                        
+                                            .dropdown-content li:hover {
+                                                background-color: #f1f1f1;
+                                            }
+                                        
+                                            .dropdown:hover .dropdown-content {
+                                                display: block !important;
+                                            }
+                                        
+                                            .dropbtn {
+                                                cursor: pointer;
+                                            }
+                                        </style>
                                     </ul>
                                 </div>
                             </div>
@@ -137,7 +154,7 @@
                     <!-- mobile menubar start -->
                     <div class="mobileMenu d-block d-lg-none">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="index-2.html"><img style="max-height:60px;" src="{% static 'assets/images/logo/muslimagro.jpg' %}"
+                            <a class="navbar-brand" href="{% url 'home' %}"><img style="max-height:60px;" src="{% static 'assets/logogo.png' %}"
                                     alt="image_not_found"></a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                                 data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"
@@ -153,160 +170,48 @@
                                 <div class="offcanvas-body">
                                     <ul class="navbar-nav main_menu_list m-auto">
                                         <li class="nav-item pe-4 dropdown">
-                                            <a class="nav-link active" aria-current="page" href="#" id="home_submenu"
-                                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
-                                            <div class="dropdown-menu" aria-labelledby="home_submenu">
-                                                <div class="sidebar_nav_item">
-                                                    <ul class="list-unstyled">
-                                                        <li>
-                                                            <a href="index.html">Home V.1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-2.html">Home V.2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-3.html">Home V.3</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index-4.html">Home V.4</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}" id="home_submenu"
+                                                role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Əsas səhifə' %}</a>
+                                          
                                         </li>
                                         <li class="nav-item pe-4 dropdown">
-                                            <a class="nav-link" href="#" id="shop_submenu" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                                            <div class="dropdown-menu" aria-labelledby="shop_submenu">
-                                                <div class="sidebar_nav_item">
-                                                    <ul class="list-unstyled">
-                                                        <li>
-                                                            <a href="shop-list-sidebar.html">Shop Sidebar</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="shop-list.html">Shop List</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                            <a class="nav-link" href="{% url 'shop' %}" id="shop_submenu" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Məhsullar' %} </a>
+                                         
                                         </li>
                                         <li class="nav-item pe-4 dropdown">
-                                            <a class="nav-link" href="#" id="blog_submenu" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                            <div class="dropdown-menu" aria-labelledby="blog_submenu">
-                                                <div class="sidebar_nav_item">
-                                                    <ul class="list-unstyled">
-                                                        <li>
-                                                            <a href="blog-details.html">Blog Details</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="blog-grid.html">Blog Grid</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="blog-list.html">Blog List</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                            <a class="nav-link" href="{% url 'about' %}" id="blog_submenu" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Haqqımızda' %}</a>
+                                       
                                         </li>
                                         <li class="nav-item pe-5">
-                                            <a class="nav-link" href="#!">Portfolio</a>
+                                            <a class="nav-link" href="{% url 'blogs' %}">{% trans 'Bloqlar' %}</a>
                                         </li>
                                         <li class="nav-item pe-4 dropdown">
-                                            <a class="nav-link" href="#" id="page_submenu" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-                                            <div class="dropdown-menu" aria-labelledby="page_submenu">
-                                                <div class="sidebar_nav_item">
-                                                    <ul class="list-unstyled">
-                                                        <li>
-                                                            <a href="cart.html">Cart Page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="faqs.html">Faqs Page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="about-us.html">About Us V.1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="about-us-2.html">About Us V.2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="vendor.html">Vendor Page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="vendor-profile.html">Vendor Profile</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="vendor-dashboard.html">Vendor Dashboard</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="product-detail.html">Product Details V.1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="product-detail-2.html">Product Details V.2</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                            <a class="nav-link" href="{% url 'contact' %}" id="page_submenu" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Əlaqə' %}</a>
+                                            
                                         </li>
-                                        <li class="nav-item pe-4 dropdown">
-                                            <a class="nav-link" href="#" id="contact_submenu" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">Contacts</a>
-                                            <div class="dropdown-menu" aria-labelledby="contact_submenu">
-                                                <div class="sidebar_nav_item">
-                                                    <ul class="list-unstyled">
-                                                        <li>
-                                                            <a href="contact-us.html">Contact Us</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
+                                  
                                     </ul>
                                 </div>
                             </div>
                             <div class="navbar_user me-2">
                                 <div class="navbar_user_icon">
                                     <ul class="list-unstyled d-flex mb-0">
-                                        <li class="pe-2 position-relative">
-                                            <a href="#collapseExample" data-bs-toggle="collapse" href="#collapseExample"
-                                                role="button" aria-expanded="false" aria-controls="collapseExample"><i
-                                                    class="far fa-user" data-toggle="collapse" role="button"
-                                                    data-target="#use_deropdown" aria-expanded="false"
-                                                    aria-controls="use_deropdown"></i>
-                                            </a>
-                                            <!-- user profile start -->
-                                            <div id="collapseExample" class="collapse_dropdown collapse">
-                                                <div class="dropdown_content">
-                                                    <div class="profile_info clearfix">
-                                                        <div class="user_thumbnail">
-                                                            <img src="{% static 'assets/images/meta/meta1.png' %}"
-                                                                alt="image_not_found">
-                                                        </div>
-                                                        <div class="user_content">
-                                                            <h4 class="user_name">Jone Doe</h4>
-                                                            <span class="user_title">Seller</span>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="settings_options ul_li_block clearfix">
-                                                        <li><a href="#!"><i class="fas fa-user-circle"></i> Profile</a>
-                                                        </li>
-                                                        <li><a href="#!"><i class="fas fa-user-cog"></i> Settings</a>
-                                                        </li>
-                                                        <li><a href="#!"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="pe-2"><a href="#!"><i class="far fa-heart"></i></a></li>
-                                        <li>
-                                            <a href="#!">
-                                                <i class="fas fa-shopping-bag position-relative"
-                                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                                    aria-controls="offcanvasRight"><span
-                                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span></i></a>
-                                        </li>
+                                        {% get_current_language as LANGUAGE_CODE %}
+                                                    
+                           {% get_available_languages as LANGUAGES %}
+                           <li class="dropdown" >
+                               <input type="checkbox" id="languageDropdown" class="dropdown-input">
+                               <label   for="languageDropdown" style="text-transform: uppercase;margin-bottom:0px;margin-top:3px;" class="dropbtn">{{LANGUAGE_CODE}} <span style="text-align:center;font-size:12px"> ▼</span></label>
+                               <ul id="myDropdown" class="dropdown-content">
+                                   {% for lang_code, lang_name in LANGUAGES %}
+                                       <li style="margin:0px;padding:0px"><a style="display:inline-block;padding:8px 14px;color:gray; {% if lang_code == LANGUAGE_CODE %} color:black {% endif %}" href="{% url 'set_language' lang_code=lang_code url=request.get_full_path %}">{{ lang_name }}</a></li>
+                                   {% endfor %}
+                               </ul>
+                           </li>
+                       
                                     </ul>
                                 </div>
                             </div>
@@ -320,128 +225,33 @@
 
         <!-- main body start -->
         <main>
-            <!-- sidebar section start -->
-            <section class="sidebar_section">
-                <div class="sidebar_content_wrap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                                aria-labelledby="offcanvasRightLabel">
-                                <div class="offcanvas-header align-items-center">
-                                    <h5 class="mb-0">Organic Products</h5>
-                                    <button type="button" class="btn-close text-reset text-end"
-                                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                </div>
-                                <div class="offcanvas-body">
-                                    <div class="prdc_ctg_product_content mt-1 d-flex align-items-center">
-                                        <div
-                                            class="prdc_ctg_product_img d-flex justify-content-center align-items-center me-3">
-                                            <img src="{% static 'assets/images/category/cat6.png' %}" alt="image_not_found">
-                                        </div>
-                                        <div class="prdc_ctg_product_text">
-                                            <div class="prdc_ctg_product_title my-2">
-                                                <a href="shop-list.html">
-                                                    <h5>Organic Cabbage</h5>
-                                                </a>
-                                            </div>
-                                            <div class="prdc_ctg_product_price mt-1 product_price">
-                                                <span class="sale_price pe-1">$50.00</span>
-                                                <del>$70.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="prdc_ctg_product_content mt-1 d-flex align-items-center">
-                                        <div
-                                            class="prdc_ctg_product_img d-flex justify-content-center align-items-center me-3">
-                                            <img src="{% static 'assets/images/category/cat7.png' %}" alt="image_not_found">
-                                        </div>
-                                        <div class="prdc_ctg_product_text">
-                                            <div class="prdc_ctg_product_title my-2">
-                                                <a href="shop-list.html">
-                                                    <h5>Organic Cabbage</h5>
-                                                </a>
-                                            </div>
-                                            <div class="prdc_ctg_product_price mt-1 product_price">
-                                                <span class="sale_price pe-1">$40.00</span>
-                                                <del>$60.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="prdc_ctg_product_content mt-1 d-flex align-items-center">
-                                        <div
-                                            class="prdc_ctg_product_img d-flex justify-content-center align-items-center me-3">
-                                            <img src="{% static 'assets/images/category/cat8.png' %}" alt="image_not_found">
-                                        </div>
-                                        <div class="prdc_ctg_product_text">
-                                            <div class="prdc_ctg_product_title my-2">
-                                                <a href="shop-list.html">
-                                                    <h5>Organic Cabbage</h5>
-                                                </a>
-                                            </div>
-                                            <div class="prdc_ctg_product_price mt-1 product_price">
-                                                <span class="sale_price pe-1">$70.00</span>
-                                                <del>$90.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="total_price">
-                                        <ul class="ul_li_block mb_30 clearfix">
-                                            <li>
-                                                <span>Subtotal:</span>
-                                                <span>$215</span>
-                                            </li>
-                                            <li>
-                                                <span>Vat 5%:</span>
-                                                <span>$10.75</span>
-                                            </li>
-                                            <li>
-                                                <span>Discount 15%:</span>
-                                                <span>- $32.25</span>
-                                            </li>
-                                            <li>
-                                                <span>Total:</span>
-                                                <span>$191.8875</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="sidebar_btns">
-                                        <ul class="btns_group ul_li_block clearfix">
-                                            <li><a href="cart.html">View Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          
             <!-- sidebar section end -->
 
             <!-- banner section start -->
             <section class="banner_section_main position-relative banner_2">
                 <div class="banner_section_item d-flex justify-content-center align-items-center sec_space_large"
-                    style="background-image: url({% static 'assets/images/banner/banner2.png' %});">
+                    style="background-image: url({% static 'assets/bannerim.png' %});">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-7 ms-3">
                                 <div class="banner_sub_title2 position-relative">
-                                    <h6 class="text-white text-uppercase position-absolute">100% Organik məhsullar</h6>
+                                    <h6 class="text-white text-uppercase position-absolute">{% trans '100% Organik məhsullar' %}</h6>
                                     <img class="sub_title_bg" src="{% static 'assets/images/shapes/shape2.png' %}"
                                         alt="image_not_found">
                                 </div>
                                 <div class="banner_title2">
-                                    <h1>Organik Meyvə və Tərəvəz <br><font class="text-effect">
+                                    <h1>{% trans 'Organik Meyvə və Tərəvəz' %} <br><font class="text-effect">
                                             <span>S</span><span>a</span><span>ğ</span><span>l</span><span>a</span><span>m</span>
                                         </font>
                                     </h1>
                                 </div>
                                 <div class="banner_desc py-3">
-                                    <p> Organik qidalanmanın önəmi hər keçən gün artır və biz, sağlam həyatı dəstəkləmək üçün ən təzə və doğal məhsulları təqdim edirik.Bizim firmamız, orqanik kənd təsərrüfatı metodu ilə yetişdirilmiş geniş bir meyvə və tərəvəz növlərinin şirin bir sırasına malikdir. Meyvələrdən tropik meyvələrə, tərəvəzlərdən yapraklı yeşilliklərə qədər hər növ məhsulu bizdə tapa bilərsiniz.</p>
+                                    <p>{% trans ' Organik qidalanmanın önəmi hər keçən gün artır və biz, sağlam həyatı dəstəkləmək üçün ən təzə və doğal məhsulları təqdim edirik.Bizim firmamız, orqanik kənd təsərrüfatı metodu ilə yetişdirilmiş geniş bir meyvə və tərəvəz növlərinin şirin bir sırasına malikdir. Meyvələrdən tropik meyvələrə, tərəvəzlərdən yapraklı yeşilliklərə qədər hər növ məhsulu bizdə tapa bilərsiniz.' %}</p>
                                 </div>
                                 <div class="banner_btn">
                                     <a href="#!"><button type="button"
-                                            class="btn custom_btn rounded-pill px-5 py-3 text-white">Kəşf et <i
+                                            class="btn custom_btn rounded-pill px-5 py-3 text-white">{% trans 'Kəşf et' %} <i
                                                 class="fas fa-long-arrow-alt-right"></i></button></a>
                                 </div>
                             </div>
@@ -466,7 +276,7 @@
                                     <div class="service_content_icon rounded-pill me-3">
                                         <img src="{% static 'assets/images/icons/green-leaf.jpeg' %}" alt="image_not_found">
                                     </div>
-                                    <h6 class="service_content_title">Orqanik məhsullar</h6>
+                                    <h6 class="service_content_title">{% trans 'Orqanik məhsullar' %}</h6>
                                 </div>
                             </div>
                             <div class="col-6 col-sm-4 col-lg-3">
@@ -475,7 +285,7 @@
                                     <div class="service_content_icon rounded-pill me-3">
                                         <img src="{% static 'assets/images/icons/delivery1.avif' %}" alt="image_not_found">
                                     </div>
-                                    <h6 class="service_content_title">Pulsuz çatdırılma</h6>
+                                    <h6 class="service_content_title">{% trans 'Pulsuz çatdırılma' %}</h6>
                                 </div>
                             </div>
                             <div class="col-6 col-sm-4 col-lg-3">
@@ -484,7 +294,7 @@
                                     <div class="service_content_icon rounded-pill me-3">
                                         <img src="{% static 'assets/images/icons/discount.avif' %}" alt="image_not_found">
                                     </div>
-                                    <h6 class="service_content_title">Həftəlik endirimlər</h6>
+                                    <h6 class="service_content_title">{% trans 'Həftəlik endirimlər' %}</h6>
                                 </div>
                             </div>
                             <div class="col-6 col-sm-4 col-lg-3">
@@ -493,7 +303,7 @@
                                     <div class="service_content_icon rounded-pill me-3">
                                         <img src="{% static 'assets/images/icons/discount2.jpeg' %}" alt="image_not_found">
                                     </div>
-                                    <h6 class="service_content_title">-20%-ə qədər endirimlər</h6>
+                                    <h6 class="service_content_title">{% trans '20%-ə qədər endirimlər' %}</h6>
                                 </div>
                             </div>
                         </div>
@@ -518,21 +328,24 @@
                                         <i class="far fa-circle"></i>
                                         <i class="far fa-circle"></i>
                                         <i class="far fa-circle"></i>
-                                        <span class="ps-1">Fermamızdan birbaşa təzə məhsullar</span>
+                                        <span class="ps-1">{% trans 'Fermamızdan birbaşa təzə məhsullar' %}</span>
+                                        <i class="far fa-circle"></i>
+                                        <i class="far fa-circle"></i>
+                                        <i class="far fa-circle"></i>
                                     </div>
                                     <div class="product_section_title py-2">
-                                        <h2>Sağlamlıq və Ətraf Mədəniyyət Şüur</h2>
+                                        <h2>{% trans 'Kənd təsərrüfatı məhsullarının topdan və pərakəndə satışı' %}</h2>
                                     </div>
                                     <div class="product_section_subtitle position-relative">
-                                        <p class="pb-0">Yalnız insan sağlamlığına deyil, eyni zamanda ətraf mühitə də qarşı məsul bir şirkət kimi, davamlı kənd təsərrüfatı tətbiqlərini dəstəkləyir və kimyəvi maddə istifadəsini minimuma endiririk.</p>
+                                        <p class="pb-0">{% trans 'Yalnız insan sağlamlığına deyil, eyni zamanda ətraf mühitə də qarşı məsul bir şirkət kimi, davamlı kənd təsərrüfatı tətbiqlərini dəstəkləyir və kimyəvi maddə istifadəsini minimuma endiririk.' %}</p>
                                     </div>
                                     <div class="product_section_desc">
-                                        <p>Müştərilərimizin razılığı bizim üçün əsaslıdır. Sifarişləriniz sürətli və etibarlı bir şəkildə çatdırılır, təzə və sağlam məhsullarla evinizə qədər gətirilir.
+                                        <p>{% trans 'Müştərilərimizin razılığı bizim üçün əsaslıdır. Sifarişləriniz sürətli və etibarlı bir şəkildə çatdırılır, təzə və sağlam məhsullarla evinizə qədər gətirilir.' %}
                                         </p>
                                     </div>
                                     <div class="product_section_btn">
-                                        <a href="#!"><button type="button"
-                                                class="btn custom_btn load_more_1 rounded-pill px-5 py-3 text-white">Kəşf et
+                                        <a href="{% url 'about' %}"><button type="button"
+                                                class="btn custom_btn load_more_1 rounded-pill px-5 py-3 text-white">{% trans 'Kəşf et' %}
                                                 <i class="fas fa-long-arrow-alt-right"></i></button></a>
                                     </div>
                                 </div>
@@ -546,7 +359,7 @@
             <!-- trend section start -->
             <section class="trend_section position-relative sec_top_space_70" data-aos="fade-up"
                 data-aos-duration="2000">
-                <div class="trend_section_wrap position-relative overflow-hidden sec_space_xlarge"
+                <div class="trend_section_wrap position-relative overflow-hidden"
                     style="background-image: url({% static 'assets/images/trends/trend1.png' %})">
                     <div class="container">
                         <div class="trend_top_content">
@@ -554,41 +367,42 @@
                                 <i class="far fa-circle"></i>
                                 <i class="far fa-circle"></i>
                                 <i class="far fa-circle"></i>
-                                <span class="text-uppercase px-3">Fermamızdan birbaşa evinizə</span>
+                                <span class="text-uppercase px-3">{% trans 'Fermamızdan birbaşa evinizə' %}</span>
                                 <i class="far fa-circle"></i>
                                 <i class="far fa-circle"></i>
                                 <i class="far fa-circle"></i>
                             </div>
                             <div class="trend_top_title text-center pb-4">
-                                <h2>Xitmedler</h2>
+                                <h2>{% trans 'Məhsullarımız' %}</h2>
                             </div>
                         </div>
                         <div class="row justify-content-center text-center">
-                            {% for service in services %}
+                            {% for category in categories %}
                             <div class="col-sm-6 col-lg-4">
                                 <div class="trend_inner_content position-relative" data-aos="fade-up"
                                     data-aos-duration="1500">
                                     <div class="trend_thumb">
-                                        <img src="{{ service.image.url }}" alt="image_not_found">
+                                        <img src="{{ category.image.url }}" alt="image_not_found">
                                     </div>
-                                    <div class="trend_inner_text position-absolute">
-                                        <h4 class="text-white">{{ service.name }}</h4>
-                                        <a href="shop-list.html" class="text-white">Müraciət et <i
-                                                class="fas fa-long-arrow-alt-right text-white"></i></a>
+                                    <div style="background-color:#ffffffad;padding:5px;width:160px;" class="trend_inner_text position-absolute">
+                                        <h4 class="text-black">{{ category.name }}</h4>
+                                        <a href="{% url 'shop' %}?categories={{category.slug}}" class="text-black">{% trans 'Keçid et' %} <i
+                                                class="fas fa-long-arrow-alt-right text-black"></i></a>
                                     </div>
                                 </div>
                             </div>
                             {% endfor %}
                         </div>
                         <div class="product_sec3_btn text-center mt-5">
-                            <a href="#!"><button type="button"
-                                    class="btn custom_btn rounded-pill px-3 text-white">İndi kəşf et <i
+                            <a href="{% url 'shop' %}"><button type="button"
+                                    class="btn custom_btn rounded-pill px-3 text-white">{% trans 'İndi kəşf et' %} <i
                                         class="fas fa-long-arrow-alt-right"></i></button></a>
                         </div>
                     </div>
                 </div>
                 <!-- product section-3 start -->
-                <section class="product_section3" data-aos="fade-up" data-aos-duration="2000">
+            
+                <section class="product_section3 sec_space_xs_70" data-aos="fade-up" data-aos-duration="2000">
                     <div class="product_section3_wrap inner_p_all_40 position-relative">
                         <div class="container">
                             <div
@@ -598,13 +412,13 @@
                                         <i class="far fa-circle"></i>
                                         <i class="far fa-circle"></i>
                                         <i class="far fa-circle"></i>
-                                        <span class="text-uppercase px-3">Fermamızdan evinizə</span>
+                                        <span class="text-uppercase px-3">{% trans 'Fermamızdan evinizə' %}</span>
                                         <i class="far fa-circle"></i>
                                         <i class="far fa-circle"></i>
                                         <i class="far fa-circle"></i>
                                     </div>
                                     <div class="product_top_title text-center py-1">
-                                        <h2>Təmiz Organik məhsullar</h2>
+                                        <h2>{% trans 'Təmiz Organik məhsullar' %}</h2>
                                     </div>
                                     <div class="d-flex justify-content-center align-items-center">
                                         <ul class="product_tabnav_3 nav nav-pills mb-4 mt-3" id="pills-tab"
@@ -638,7 +452,7 @@
                                                     <div class="prdc_ctg_product_text">
                                                      
                                                         <div class="prdc_ctg_product_title my-2">
-                                                            <a href="shop-list.html">
+                                                            <a href="{% url 'shopSingle' product.slug %}">
                                                                 <h5>{{ product.name }}</h5>
                                                             </a>
                                                         </div>
@@ -647,13 +461,10 @@
                                                             <del>{{ product.price }}</del>
                                                         </div>
                                                         <ul class="product_action_btns ul_li_block d-flex">
-                                                            <li><a data-bs-toggle="tooltip" title="Search"
-                                                                    data-bs-placement="top" title="Search Product"
-                                                                    href="#!"><i class="fas fa-search"></i></a></li>
-                                                            <li><a data-bs-toggle="tooltip" title="Add to cart"
-                                                                    data-bs-placement="top" title="Add To Cart"
-                                                                    href="#product_quick_view" data-bs-toggle="modal"><i
-                                                                        class="fas fa-shopping-bag"></i></a></li>
+                                                            <li><a data-bs-toggle="tooltip" title="Keçid et"
+                                                                    data-bs-placement="top"
+                                                                    href="{% url 'shopSingle' product.slug %}"><i class="fas fa-search"></i></a></li>
+                                              
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -666,8 +477,8 @@
                                 
                                 </div>
                                 <div class="product_sec3_btn text-center mt-5">
-                                    <a href="#!"><button type="button"
-                                            class="btn custom_btn rounded-pill px-3 text-white">Indi kəşf et <i
+                                    <a href="{% url 'shop' %}"><button type="button"
+                                            class="btn custom_btn rounded-pill px-3 text-white">{% trans 'İndi kəşf et' %} <i
                                                 class="fas fa-long-arrow-alt-right"></i></button></a>
                                 </div>
                                 <img class="product3_left_thumb position-absolute"
@@ -696,23 +507,20 @@
                                     <div class="sale2_sub_title pb-3 position-relative">
                                         <img class="sub_title_bg" src="{% static 'assets/images/shapes/shape2.png' %}"
                                             alt="image_not_found">
-                                        <h6 class="text-white text-uppercase position-absolute">Sağlam həyat yaşa</h6>
+                                        <h6 class="text-white text-uppercase position-absolute">{% trans 'Sağlam həyat yaşa' %}</h6>
                                     </div>
                                     <div class="sale2_title py-2">
-                                        <h2>68% Endirim <br> Bütün <font class="text-effect">
-                                                <span>M</span><span>E</span><span>Y</span><span>V</span><span>Ə</span><span>L</span><span>Ə</span><span>R</span><span>Ə</span>
+                                        <h2>{% trans '100% orqanik' %} <br>  <font class="text-effect">
+                                                <span>M</span><span>Ə</span><span>H</span><span>S</span><span>U</span><span>L</span><span>L</span><span>A</span><span>R</span>
                                              </font>
                                         </h2>
                                     </div>
                                     <div class="sale2_desc">
-                                        <p>Organik mehsullar təbii mənbəli, kimyəvi gübrə və pestisidlər istifadə edilməyən, bərpa edilən 
-                                            və ya minimal prosesslərdən keçirilən məhsullardır. Bu məhsullar insan sağlamlığına, ətraf mühitə 
-                                            və əkin sahəsinin təbii ekosistemlərinə təsir etməmişdir. Organik məhsullar tərkibində 
-                                            sintetik tərkib maddələri olmayan təbii maddələri içərir və qida məhsulları, meyvə və tərəvəz, toxumlu kimi çeşidlənir.</p>
+                                        <p>{% trans 'Müslimaqro şirkəti artıq illərdiki, restoranlara, otellərə və digər biznes modellərinə kənd təsərrüfatı məhsullarının çatdırılması xidmətini göstərir. İstər topdan, istərsə də pərakəndə satış göstərən şirkətimiz, məhsulların keyfiyyətinə 100% zəmanət verir.' %} </p>
                                     </div>
                                     <div class="sale2_btn load_more_3">
                                         <a href="#!"><button type="button"
-                                                class="btn custom_btn rounded-pill px-5 py-3 text-white">Daha ətraflı <i
+                                                class="btn custom_btn rounded-pill px-5 py-3 text-white">{% trans 'Daha ətraflı '%} <i
                                                     class="fas fa-long-arrow-alt-right"></i></button></a>
                                     </div>
                                 </div>
@@ -730,17 +538,15 @@
                         <div class="col-lg-6">
                             <div class="product_sec_content">
                                 <div class="product_sec_sub_title d-flex align-items-center pb-2">
-                                    <i class="far fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                                    <i class="far fa-circle"></i>
-                                    <span class="ps-1">FRESH FROM OUR FARM</span>
+                               
+                            
                                 </div>
-                                <h2 class="product_sec_title pb-3">Artıq Müslimargoda</h2>
+                                <h2 class="product_sec_title pb-3">{% trans 'Artıq Müslimargoda' %}</h2>
                             </div>
                         </div>
                         <div class="col-lg-6 text-center text-lg-end">
-                            <a href="#!"><button type="button"
-                                    class="btn custom_btn rounded-pill px-4 py-2  text-white">Daha çox<i
+                            <a href="{% url 'shop' %}"><button type="button"
+                                    class="btn custom_btn rounded-pill px-4 py-2  text-white">{% trans 'Daha çox' %}<i
                                         class="fas fa-long-arrow-alt-right"></i></button></a>
                         </div>
                     </div>
@@ -752,7 +558,7 @@
                                 <div class="product_layout_content bg-white position-relative">
                                     <div class="product_image_wrap">
                                         <a class="product_image d-flex justify-content-center align-items-center"
-                                            href="product-detail.html">
+                                            href="{% url 'shopSingle' product.slug %}">
                                             {% for image in product.images.all %}
                                             <img class="pic-{{forloop.counter}}" src="{{ image.image.url }}" alt="image_not_found">
                                      
@@ -767,17 +573,15 @@
                                             </li>
                                         </ul>
                                         <ul class="product_action_btns ul_li_block d-flex">
-                                            <li><a class="tooltips" data-placement="top" title="Search Product"
-                                                    href="#!"><i class="fas fa-search"></i></a></li>
-                                            <li><a class="tooltips" data-placement="top" title="Add To Cart"
-                                                    href="#product_quick_view" data-bs-toggle="modal"><i
-                                                        class="fas fa-shopping-bag"></i></a></li>
+                                            <li><a class="tooltips" data-placement="top" title="Keçid et"
+                                                    href="{% url 'shopSingle' product.slug %}"><i class="fas fa-search"></i></a></li>
+                                          
                                         </ul>
                                     </div>
                                     
                                     <div class="product_content">
                                         <h3 class="product_title">
-                                            <a href="product-detail.html">{{ product.name }}</a>
+                                            <a href="{% url 'shopSingle' product.slug %}">{{ product.name }}</a>
                                         </h3>
                                         <div class="product_price">
                                             <span class="sale_price pe-1">{{ product.get_discount_price }}</span>
@@ -796,7 +600,7 @@
 
             <!-- blog section start -->
             {% if blogs %}
-            <section style="padding-bottom:20px;" class="blog_section sec_space_xlarge position-relative" data-aos="fade-up"
+            <section style="padding-bottom:20px;" class="blog_section sec_space_xs_70 position-relative" data-aos="fade-up"
                 data-aos-duration="2000">
                 <div class="blog_section_wrap">
                     <div class="container-fluid-full ">
@@ -805,19 +609,19 @@
                                 <i class="far fa-circle"></i>
                                 <i class="far fa-circle"></i>
                                 <i class="far fa-circle"></i>
-                                <span class="px-2">FRESH FROM</span>
+                            
                                 <i class="far fa-circle"></i>
                                 <i class="far fa-circle"></i>
                                 <i class="far fa-circle"></i>
                             </div>
                             <div class="blog_top_title pb-5">
-                                <h2>Bloqlar</h2>
+                                <h2>{% trans 'Bloqlar' %}</h2>
                             </div>
                         </div>
                         <div class="row p-0">
                             {% for blog in blogs %}
                             <div class="col-md-6 col-xl-3 p-0">
-                                <a class="d-block" href="blog-details.html">
+                                <a class="d-block" href="{% url 'blogSingle' blog.slug %}">
                                     <div class="blog_content_thumb"
                                         style="background-image: url({{blog.image.url}});" data-aos="fade-right" data-aos-duration="1000">
                                     </div>
@@ -831,7 +635,7 @@
                                         <h6 class="text-white">{{ blog.category }}</h6>
                                     </div>
                                     <div class="blog_title pt-3">
-                                        <a href="blog-details.html">
+                                        <a href="{% url 'blogSingle' blog.slug %}">
                                             <h2>{{ blog.title }}</h2>
                                         </a>
                                     </div>
@@ -857,85 +661,9 @@
             {% endif %}
             <!-- blog section end -->
 
-          
-
-            <!-- testimonial-3 section start  -->
-            <section class="testimonial3_sec sec_space_large sec_top_100" data-aos="fade-up" data-aos-duration="2000">
-                <div class="testimonial3_sec_wrap">
-                    <div class="container-sm">
-                        <div class="testimonial3_content position-relative">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div
-                                        class="testimonial3_slider_thmb d-flex justify-content-center align-items-center">
-                                        <div class="slide_item">
-                                            <img src="{% static 'assets/images/testimonials/test-1.jpg' %}" alt="image_not_found">
-                                        </div>
-                                        <div class="slide_item">
-                                            <img src="{% static 'assets/images/testimonials/test-2.jpg' %}" alt="image_not_found">
-                                        </div>
-                                        <div class="slide_item">
-                                            <img src="{% static 'assets/images/testimonials/test-3.jpg' %}" alt="image_not_found">
-                                        </div>
-                                        <div class="slide_item">
-                                            <img src="{% static 'assets/images/testimonials/test-1.jpg' %}" alt="image_not_found">
-                                        </div>
-                                        <div class="slide_item">
-                                            <img src="{% static 'assets/images/testimonials/test-2.jpg' %}" alt="image_not_found">
-                                        </div>
-                                    </div>
-                                    <div class="testimonial3_slider_items col-lg-8 m-auto">
-                                        <div class="testimonial3_text">
-                                            <p class="testimonial_desc text-center">This is due to their excellent
-                                                service, competitive pricing and customer support. It’s throughly
-                                                refresing to get such a personal touch.</p>
-                                            <div class="testimonial_author text-center">Shirley Smith <font>- Director
-                                                </font>
-                                            </div>
-                                        </div>
-                                        <div class="testimonial3_text">
-                                            <p class="testimonial_desc text-center">Their excellent service, competitive
-                                                pricing and customer support. It’s throughly refresing to get such a
-                                                personal touch.</p>
-                                            <div class="testimonial_author text-center">Shirley Smith <font>- Director
-                                                </font>
-                                            </div>
-                                        </div>
-                                        <div class="testimonial3_text">
-                                            <p class="testimonial_desc text-center">This is due to their excellent
-                                                service, competitive pricing and customer support. It’s throughly
-                                                refresing to get such a personal touch.</p>
-                                            <div class="testimonial_author text-center">Shirley Smith <font>- Director
-                                                </font>
-                                            </div>
-                                        </div>
-                                        <div class="testimonial3_text">
-                                            <p class="testimonial_desc text-center">Their excellent service, competitive
-                                                pricing and customer support. It’s throughly refresing to get such a
-                                                personal touch.</p>
-                                            <div class="testimonial_author text-center">Shirley Smith <font>- Director
-                                                </font>
-                                            </div>
-                                        </div>
-                                        <div class="testimonial3_text">
-                                            <p class="testimonial_desc text-center">This is due to their excellent
-                                                service, competitive pricing and customer support. It’s throughly
-                                                refresing to get such a personal touch.</p>
-                                            <div class="testimonial_author text-center">Shirley Smith <font>- Director
-                                                </font>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- testimonial-3 section end  -->
 
             <!-- instagram section start -->
-            <section class="instagram_section instagram_style_1 instagram_2 position-relative sec_space_xs_70"
+            {% comment %} <section class="instagram_section instagram_style_1 instagram_2 position-relative sec_space_xs_70"
                 data-aos="fade-up" data-aos-duration="1000">
                 <div class="container">
                     <div class="product_sec_sub_title d-flex justify-content-center align-items-center pb-2">
@@ -987,11 +715,11 @@
                         </li>
                     </ul>
                 </div>
-            </section>
+            </section> {% endcomment %}
             <!-- instagram section end -->
 
             <!-- brand section start -->
-            <section class="brand_section sec_bottom_space_50" data-aos="fade-up" data-aos-duration="2000">
+            <section class="brand_section sec_space_xs_70" data-aos="fade-up" data-aos-duration="2000">
                 <div class="container">
                     <div class="brand_thumb text-center">
                         <img src="{% static 'assets/images/brands/brand1.png' %}" alt="image_not_found">
@@ -1005,269 +733,12 @@
         <!-- main body end -->
 
         <!-- footer section start -->
-        <footer class="footer_section position-relative">
-            <div class="footer_section_wrap sec_top_space_50"
-                style="background-image: url({% static 'assets/images/footer/footer.png' %})">
-                <div class="container">
-                    <div
-                        class="footer_top_content d-flex flex-column flex-lg-row justify-content-between align-items-center">
-                        <div class="footer_top_logo">
-                            <a href="index-2.html"><img style="max-height:80px" src="{% static 'assets/images/logo/muslimagro.jpg' %}" alt="image_not_found"></a>
-                        </div>
-                        <div class="footer_top_subs position-relative">
-                            <input class="rounded-pill" type="search" name="search" placeholder="Your Phone Number">
-                            <a href="#!"><button type="button"
-                                    class="btn custom_btn rounded-pill text-white position-absolute">Subscribe Now <i
-                                        class="fas fa-long-arrow-alt-right"></i></button></a>
-                        </div>
-                        <div class="footer_top_social">
-                            <ul class="list-unstyled d-flex justify-content-end">
-                                <li class="me-3"><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                                <li class="me-3"><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="me-3"><a href="#!"><i class="fab fa-youtube"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-google-plus-g"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer_inner_content sec_space_xs_70">
-                        <div class="footer_inner_content_wrap">
-                            <div class="row justify-content-center">
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="footer_inner_choose_content">
-                                        <div class="footer_inner_choose_title">
-                                            <h4>
-                                                <a href="#!" class="text-white">Why People Like us</a>
-                                            </h4>
-                                        </div>
-                                        <div class="footer_inner_choose_desc pt-2">
-                                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                                                ut aliquip ex ea
-                                                commodo. Build your online store with WooCommerce the most popular </p>
-                                        </div>
-                                        <div class="footer_inner_choose">
-                                            <a href="#!"><button type="button"
-                                                    class="btn custom_btn rounded-pill px-4 text-white">View More <i
-                                                        class="fas fa-long-arrow-alt-right"></i></button></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="footer_inner_info_content">
-                                        <div class="footer_inner_info_title">
-                                            <h4>
-                                                <a href="#!" class="text-white">Information</a>
-                                            </h4>
-                                        </div>
-                                        <div class="footer_inner_info_item pt-2">
-                                            <ul class="list-unstyled">
-                                                <li><a href="#!">About Us</a></li>
-                                                <li><a href="#!">Delivery Information</a></li>
-                                                <li><a href="#!">Privacy Policy</a></li>
-                                                <li><a href="#!">Terms & Conditions</a></li>
-                                                <li><a href="#!">Return Policy</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="footer_inner_acct_content">
-                                        <div class="footer_inner_acct_title">
-                                            <h4>
-                                                <a href="#!" class="text-white">My Account</a>
-                                            </h4>
-                                        </div>
-                                        <div class="footer_inner_acct_item pt-2">
-                                            <ul class="list-unstyled">
-                                                <li><a href="#!">My Account</a></li>
-                                                <li><a href="#!">Shopping Cart</a></li>
-                                                <li><a href="#!">Wishlist</a></li>
-                                                <li><a href="#!">Order History</a></li>
-                                                <li><a href="#!">International Orders</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="footer_inner_cotc_content">
-                                        <div class="footer_inner_ctc_title">
-                                            <h4>
-                                                <a href="#!" class="text-white">Contact Us</a>
-                                            </h4>
-                                        </div>
-                                        <div class="footer_inner_ctc_info pt-2 text-white">
-                                            <p>Address: <font>1429 Netus Rd, NY 48247</font>
-                                            </p>
-                                            <p>Email: <font>Organi@gmail.com</font>
-                                            </p>
-                                            <p>Phone: <font>(+87) 4886-4174</font>
-                                            </p>
-                                            <div class="footer_inner_payment_ctc">
-                                                <div class="footer_inner_payment_title">
-                                                    <h5 class="text-white">Payment Accepted</h5>
-                                                </div>
-                                                <div class="footer_inner_payment_thumb pt-3">
-                                                    <a href="#!"><img src="{% static 'assets/images/payment/payment.png' %}"
-                                                            alt="image_not_found"></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer_bootom_content">
-                        <div class="footer_bootom_wrap">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="footer_bootom_copyright">
-                                            <p>Copyright © 2022 <font>ORGANI</font> Inc. All rights reserved.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div
-                                            class="footer_bootom_privicy_cont d-flex justify-content-center align-items-center">
-                                            <div class="footer_bootom_privicy pe-5">
-                                                <a href="#!">
-                                                    <p class="priv position-relative">Privacy Policy</p>
-                                                </a>
-                                            </div>
-                                            <div class="footer_bootom_terms pe-5">
-                                                <p class="position-relative">Terms of Use</p>
-                                            </div>
-                                            <div class="footer_bootom_refunds">
-                                                <p>Sales and Refunds</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+      {% include 'footer.html' %}
         <!-- footer section end -->
 
         <!-- quick-view start -->
 
-        <div class="modal fade quick_view" id="product_quick_view" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content position-relative">
-                    <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal"
-                        aria-label="Close"><i class="fas fa-times"></i></button>
-                    <div class="modal-body p-0">
-                        <div class="container-fluid-full product10_wrap sec_space_small"
-                            style="background-image: url({% static 'assets/images/backgrounds/bg17.png' %})">
-                            <div class="row justify-content-center p-5">
-                                <div class="col-lg-6">
-                                    <div class="product10_thumb_content d-flex flex-column">
-                                        <div class="product11_slide_item">
-                                            <div
-                                                class="d-flex justify-content-center align-items-center position-relative overflow-hidden">
-                                                <img src="{% static 'assets/images/product/product40.png' %}" alt="image_not_found">
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-center align-items-center position-relative overflow-hidden">
-                                                <img src="{% static 'assets/images/product/product40.png' %}" alt="image_not_found">
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-center align-items-center position-relative overflow-hidden">
-                                                <img src="{% static 'assets/images/product/product40.png' %}" alt="image_not_found">
-                                            </div>
-                                        </div>
-
-                                        <div class="product10_thumb_item product11_slide_thumb">
-                                            <div class="thumb_item">
-                                                <a href="#!"><img src="{% static 'assets/images/product/product6.png' %}"
-                                                        alt="image_not_found"></a>
-                                            </div>
-                                            <div class="thumb_item">
-                                                <a href="#!"><img src="{% static 'assets/images/product/product8.png' %}"
-                                                        alt="image_not_found"></a>
-                                            </div>
-                                            <div class="thumb_item">
-                                                <a href="#!"><img src="{% static 'assets/images/product/product23.png' %}"
-                                                        alt="image_not_found"></a>
-                                            </div>
-                                            <div class="thumb_item">
-                                                <a href="#!"><img src="{% static 'assets/images/product/product6.png' %}"
-                                                        alt="image_not_found"></a>
-                                            </div>
-                                            <div class="thumb_item">
-                                                <a href="#!"><img src="{% static 'assets/images/product/product8.png' %}"
-                                                        alt="image_not_found"></a>
-                                            </div>
-                                            <div class="thumb_item">
-                                                <a href="#!"><img src="{% static 'assets/images/product/product23.png' %}"
-                                                        alt="image_not_found"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="rating_wrap d-flex justify-content-between">
-                                        <div class="rating_review_cont d-flex d-flex align-items-center">
-                                            <ul class="rating_star ul_li">
-                                                <li class="active"><i class="fas fa-star"></i></li>
-                                                <li class="active"><i class="fas fa-star"></i></li>
-                                                <li class="active"><i class="fas fa-star"></i></li>
-                                                <li class="active"><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <a href="#!" class="review">Read 3 Reviews</a>
-                                        </div>
-                                        <div class="product_btn">
-                                            <a href="#"><button type="button"
-                                                    class="btn custom_btn rounded-pill px-4 text-white">Smoothies</button></a>
-                                        </div>
-                                    </div>
-                                    <h2 class="product_detail_title">Good Organic Products</h2>
-                                    <p class="product_detail_desc py-2">Morbi eget congue lectus. Donec eleifend
-                                        ultricies urna et euismod. Sed consectetur tellus eget odio aliquet, vel
-                                        vestibulum tellus sollicitudin. Morbi maximus metus eu eros tincidunt, vitae
-                                        mollis ante imperdiet. Nulla imperdiet at mauris ut posuere. Nam at ultrices
-                                        justo.</p>
-                                    <div class="product10_quantity_btn_wrap d-flex align-items-center">
-                                        <div class="quantity_input bg-white">
-                                            <form action="#">
-                                                <span class="input_number_decrement">–</span>
-                                                <input class="input_number" value="2KG">
-                                                <span class="input_number_increment">+</span>
-                                            </form>
-                                        </div>
-                                        <a href="#"><button type="button"
-                                                class="btn custom_btn rounded-pill ms-3 px-5 py-3 text-white">Order Now
-                                                <i class="fas fa-long-arrow-alt-right"></i></button></a>
-                                    </div>
-                                    <div class="product_tags_wrap d-flex align-items-center mt-5">
-                                        <h6 class="product_tags_title text-uppercase">tags:</h6>
-                                        <div class="tags_item d-flex align-items-center">
-                                            <a href="#!">T-shirt,</a>
-                                            <a class="ms-1" href="#!">Clothes,</a>
-                                            <a class="ms-1" href="#!">Fashion,</a>
-                                            <a class="ms-1" href="#!">Shop</a>
-                                        </div>
-                                    </div>
-                                    <div class="product_social_links d-flex align-items-center">
-                                        <h6 class="product_social_title text-uppercase">share:</h6>
-                                        <ul class="list-unstyled d-flex mb-0">
-                                            <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#!"><i class="fab fa-google-plus-g"></i></a></li>
-                                            <li><a href="#!"><i class="fab fa-pinterest-p"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    
         <!-- quick-view end -->
 
     </div>
@@ -1299,6 +770,24 @@
 
 </body>
 
-
-<!-- Mirrored from jthemes.net/themes/html/organic/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 11:30:48 GMT -->
+<script>
+	function updateLanguageBasedOnCookie() {
+		var langCookie = document.cookie.replace(/(?:(?:^|.*;\s*)django_language\s*=\s*([^;]*).*$)|^.*$/, "$1");
+		if (langCookie) {
+			var urlParts = window.location.href.split('/');
+			urlParts.splice(3, 1, langCookie); 
+			var newURL = urlParts.join('/');
+			if (window.location.href !== newURL) {
+				document.cookie = "django_language=" + langCookie + "; path=/";
+				window.location.href = newURL
+			}
+		}
+	}
+	
+	// Sayfa yüklendiğinde çalıştır
+	window.onload = function() {
+		updateLanguageBasedOnCookie();
+	};
+	
+</script>
 </html>

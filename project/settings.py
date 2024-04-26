@@ -27,6 +27,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ALLOWED_ORIGINS = [
+    'https://test.victoriassirri.az',
+    'https://victoriassirri.az',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://test.victoriassirri.az',
+    'http://test.victoriassirri.az',
+    'https://victoriassirri.az',
+    'http://victoriassirri.az',
+]
 
 # Application definition
 
@@ -41,11 +52,15 @@ INSTALLED_APPS = [
 
     #mainapp
     'mainapp',
+
+    #thirdparty
+    'rosetta',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -106,14 +121,25 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
+from django.utils.translation import gettext_lazy as _
 
+LANGUAGES = (
+    ('az', _('Az')),
+    ('ru', _('Ru')),
+    ('en', _('En')),
+)
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 LANGUAGE_CODE = 'az'
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'az'
 
 TIME_ZONE = 'Asia/Baku'
 SITE_ID = 1
 USE_I18N = True
-USE_L10N = True
+
 USE_TZ = True
 
 
@@ -138,3 +164,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"

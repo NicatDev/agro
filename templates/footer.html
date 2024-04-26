@@ -1,0 +1,130 @@
+{% load static %}
+{% load i18n %}
+<style>
+    .icon-center{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+</style>
+<footer class="footer_section position-relative">
+    <div class="footer_section_wrap sec_top_space_50"
+        style="background-image: url({% static 'assets/images/footer/footer.png' %})">
+        <div class="container">
+            <div
+                class="footer_top_content d-flex flex-column flex-lg-row justify-content-between align-items-center">
+                <div class="footer_top_logo">
+                    <a href="{% url 'home' %}"><img style="max-height:80px" src="{% static 'assets/logogo.png' %}" alt="image_not_found"></a>
+                </div>
+               
+                <div class="footer_top_social">
+                    <ul class="list-unstyled d-flex justify-content-end">
+                        <li class="me-3"><a class="icon-center" href="#!"><i class="fab fa-twitter"></i></a></li>
+                        <li class="me-3"><a class="icon-center" href="#!"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="me-3"><a class="icon-center" href="#!"><i class="fab fa-youtube"></i></a></li>
+                        <li><a class="icon-center" href="#!"><i class="fab fa-google-plus-g"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_inner_content sec_space_xs_70">
+                <div class="footer_inner_content_wrap">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer_inner_choose_content">
+                                <div class="footer_inner_choose_title">
+                                    <h4>
+                                        <a href="{% url 'home' %}" class="text-white">{% trans 'Niyə bizi seçməli ?' %}</a>
+                                    </h4>
+                                </div>
+                                <div class="footer_inner_choose_desc pt-2">
+                                    <p> {% trans 'Şirkətimiz istər pərakəndə, istərsə də topdan satışda, kənd təsərrüfatı mallarının ən keyfiyyətlisini seçir, xüsusi saxlanma şəraitində saxlayır və süfrənizə qədər keyfiyyətə zəmanət verir.' %}  </p>
+                                </div>
+                                <div class="footer_inner_choose">
+                                    <a href="{% url 'shop' %}"><button type="button"
+                                            class="btn custom_btn rounded-pill px-4 text-white">{% trans 'Daha ətraflı' %} <i
+                                                class="fas fa-long-arrow-alt-right"></i></button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer_inner_info_content">
+                                <div class="footer_inner_info_title">
+                                    <h4>
+                                        <a href="#!" class="text-white">{% trans 'Keçidlər' %}</a>
+                                    </h4>
+                                </div>
+                                <div class="footer_inner_info_item pt-2">
+                                    <ul class="list-unstyled">
+                                        <li><a href="{% url 'home' %}">{% trans 'Əsas səhifə' %}</a></li>
+                                       
+                                        <li><a href="{% url 'shop' %}">{% trans 'Məhsullar' %}</a></li>
+                                        <li><a href="{% url 'contact' %}">{% trans 'Əlaqə' %}</a></li>
+                                     
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer_inner_acct_content">
+                                <div class="footer_inner_acct_title">
+                                    <h4>
+                                        <a href="#!" class="text-white">{% trans 'Məlumat' %}</a>
+                                    </h4>
+                                </div>
+                                <div class="footer_inner_acct_item pt-2">
+                                    <ul class="list-unstyled">
+                                        <li><a href="{% url 'blogs' %}">{% trans 'Bloqlar' %}</a></li>
+                                        <li><a href="{% url 'about' %}">{% trans 'Haqqımızda' %}</a></li>
+                            
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer_inner_cotc_content">
+                                <div class="footer_inner_ctc_title">
+                                    <h4>
+                                        <a href="#!" class="text-white">{% trans 'Əlaqə' %}</a>
+                                    </h4>
+                                </div>
+                                <div class="footer_inner_ctc_info pt-2 text-white">
+                                    <p>{% trans 'Ünvan:' %} <b>1429 Netus Rd, NY 48247</b>
+                                    </p>
+                                    <p>{% trans 'E-poçt:' %} <b>Organi@gmail.com</b>
+                                    </p>
+                                    <p>{% trans 'Əlaqə nömrəsi:' %} <b>(+87) 4886-4174</b>
+                                    </p>
+                                    <div class="footer_inner_payment_ctc">
+                                        <div class="footer_inner_payment_title">
+                                          
+                                        </div>
+                             
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bootom_content">
+                <div class="footer_bootom_wrap">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="footer_bootom_copyright">
+                                    <p>Copyright © 2024 <a href="https://oneiro.az/">Oneiro Group</a> Inc. All rights reserved.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div
+                                    class="footer_bootom_privicy_cont d-flex justify-content-center align-items-center">
+                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

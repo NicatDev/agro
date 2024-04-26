@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
 <header class="about_header position-relative">
@@ -21,7 +22,7 @@
                          aria-expanded="false" aria-label="Toggle navigation">
                          <i class="fas fa-bars"></i>
                       </a>
-                      <a href="index.html">
+                      <a href="{% url 'home' %}">
                          <img style="max-height:60px;" src="{% static 'assets/images/logo/muslimagro.jpg' %}" alt="image_not_found">
                       </a>
                    </div>
@@ -41,22 +42,56 @@
                    <div class="navbar_user me-2">
                       <div class="navbar_user_icon">
                          <ul class="list-unstyled d-flex mb-0">
-                            <li class="pe-3 position-relative">
-                               <a href="#collapseExample" data-bs-toggle="collapse" href="#collapseExample"
-                                  role="button" aria-expanded="false" aria-controls="collapseExample"><i
-                                     class="far fa-user" data-toggle="collapse" role="button"
-                                     data-target="#use_deropdown" aria-expanded="false"
-                                     aria-controls="use_deropdown"></i>
-                               </a>
-                               <!-- user profile start -->
+                           {% get_current_language as LANGUAGE_CODE %}
+                                                    
+                           {% get_available_languages as LANGUAGES %}
+                           <li class="dropdown" >
+                               <input type="checkbox" id="languageDropdown" class="dropdown-input">
+                               <label   for="languageDropdown" style="text-transform: uppercase;margin-bottom:0px;margin-top:3px;" class="dropbtn">{{LANGUAGE_CODE}} <span style="text-align:center;font-size:12px"> ▼</span></label>
+                               <ul id="myDropdown" class="dropdown-content">
+                                   {% for lang_code, lang_name in LANGUAGES %}
+                                       <li style="margin:0px;padding:0px"><a style="display:inline-block;padding:8px 14px;color:gray; {% if lang_code == LANGUAGE_CODE %} color:black {% endif %}" href="{% url 'set_language' lang_code=lang_code url=request.get_full_path %}">{{ lang_name }}</a></li>
+                                   {% endfor %}
+                               </ul>
+                           </li>
+                       
+                           <style>
+                               @media only screen and (min-width: 990px) and (max-width: 1112px) {
+                               .search-icon-li{
+                                   display:none !important;
+                               }
+                           }
+                               .dropdown-input {
+                                   display: none;
+                               }
                            
-                            </li>
-                            <li class="pe-3"><a href="#!"><i class="far fa-heart"></i></a></li>
-                            <li><a href="#!"><i class="fas fa-shopping-bag position-relative"
-                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                     aria-controls="offcanvasRight"><span
-                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span></i></a>
-                            </li>
+                               .dropdown-content {
+                                   display: none !important;
+                                   position: absolute;
+                                   background-color: #f9f9f9;
+                                   min-width: 15px;
+                                   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                   z-index: 1;
+                                   list-style-type: none;
+                                   padding: 0;
+                               }
+                           
+                               .dropdown-content li {
+                                   padding: 8px 12px;
+                               }
+                           
+                               .dropdown-content li:hover {
+                                   background-color: #f1f1f1;
+                               }
+                           
+                               .dropdown:hover .dropdown-content {
+                                   display: block !important;
+                               }
+                           
+                               .dropbtn {
+                                   cursor: pointer;
+                               }
+                           </style>
                          </ul>
                       </div>
                    </div>
@@ -71,22 +106,22 @@
                    <div class="offcanvas-body">
                       <ul class="navbar-nav main_menu_list m-auto">
                          <li class="nav-item pe-1">
-                            <a class="nav-link" href="{% url 'home' %}">Əsas səhifə</a>
+                            <a class="nav-link" href="{% url 'home' %}">{% trans 'Əsas səhifə' %}</a>
                          </li>
 
                          <li class="nav-item pe-3">
-                            <a class="nav-link" href="{% url 'about' %}">Haqqımızda</a>
+                            <a class="nav-link" href="{% url 'about' %}">{% trans 'Haqqımızda' %}</a>
                          </li>
 
                          <li class="nav-item pe-2">
-                            <a class="nav-link" href="{% url 'shop' %}">Məhsullar</a>
+                            <a class="nav-link" href="{% url 'shop' %}">{% trans 'Məhsullar' %}</a>
                          </li>
        
                          <li class="nav-item pe-3">
-                            <a class="nav-link" href="{% url 'blogs' %}">Bloqlar</a>
+                            <a class="nav-link" href="{% url 'blogs' %}">{% trans 'Bloqlar' %}</a>
                          </li>
                          <li class="nav-item pe-3">
-                            <a class="nav-link" href="{% url 'contact' %}">Əlaqə</a>
+                            <a class="nav-link" href="{% url 'contact' %}">{% trans 'Əlaqə' %}</a>
                          </li>
                       </ul>
                    </div>
@@ -102,7 +137,7 @@
                       <div class="form_item position-relative">
                          <form method='get' action="{% url 'shop' %}"> 
                          <input type="search" class="form-control rounded-pill py-3" name="search"
-                            placeholder="Məhsullarda axtar.s..">
+                            placeholder="{% trans 'Məhsullarda axtar.s..' %}">
                          <button type="submit" class="submit_btn"><i class="fas fa-search"></i></button>
                          </form>
                       </div>
@@ -126,19 +161,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                    <ul class="navbar-nav navbar_4 main_menu_list after_navbar">
                       <li class="nav-item pe-1">
-                         <a class="nav-link" href="{% url 'home' %}">Əsas səhifə</a>
+                         <a class="nav-link" href="{% url 'home' %}">{% trans 'Əsas səhifə' %}</a>
                       </li>
                       <li class="nav-item pe-3">
-                        <a class="nav-link" href="{% url 'about' %}">Haqqımızda</a>
+                        <a class="nav-link" href="{% url 'about' %}">{% trans 'Haqqımızda' %}</a>
                      </li>
                       <li class="nav-item pe-2">
-                         <a class="nav-link" href="{% url 'shop' %}">Məhsullar</a>
+                         <a class="nav-link" href="{% url 'shop' %}">{% trans 'Məhsullar' %}</a>
                       </li>
                       <li class="nav-item pe-3">
-                        <a class="nav-link" href="{% url 'blogs' %}">Bloqlar</a>
+                        <a class="nav-link" href="{% url 'blogs' %}">{% trans 'Bloqlar' %}</a>
                      </li>
                      <li class="nav-item pe-3">
-                        <a class="nav-link" href="{% url 'contact' %}">Əlaqə</a>
+                        <a class="nav-link" href="{% url 'contact' %}">{% trans 'Əlaqə' %}</a>
                      </li>
                    </ul>
                 </div>
@@ -147,3 +182,23 @@
           </div>
        </div>
  </header>
+ <script>
+	function updateLanguageBasedOnCookie() {
+		var langCookie = document.cookie.replace(/(?:(?:^|.*;\s*)django_language\s*=\s*([^;]*).*$)|^.*$/, "$1");
+		if (langCookie) {
+			var urlParts = window.location.href.split('/');
+			urlParts.splice(3, 1, langCookie); 
+			var newURL = urlParts.join('/');
+			if (window.location.href !== newURL) {
+				document.cookie = "django_language=" + langCookie + "; path=/";
+				window.location.href = newURL
+			}
+		}
+	}
+	
+	// Sayfa yüklendiğinde çalıştır
+	window.onload = function() {
+		updateLanguageBasedOnCookie();
+	};
+	
+</script>

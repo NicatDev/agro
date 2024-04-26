@@ -1,17 +1,19 @@
 {% load static  %}
+{% load i18n %}
 <html lang="en">
 
-<!-- Mirrored from jthemes.net/themes/html/organic/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 11:31:18 GMT -->
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us V.1 - Organic - Food E-commerce HTML Template</title>
-    <!-- favicon icon -->
-    <link rel="shortcut icon" href="{% static 'assets/images/icons/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Müslimagro - Kənd təsərrüfatı məhsullarının topdan və pərakəndə satışı</title>
+
+    <meta name="description" content="Müslimagro - Kənd təsərrüfatı məhsullarının tam orqanik olaraq süfrənizə qədər çatdırılması və sizin razılığınız üçün xidmət göstərir. İstənilən meyvə, tərəvəz və bostan məhsullarının satışı">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/logogo.png' %}" type="image/x-icon">
     <!-- Include fontawesome cdn -->
-    <link rel="stylesheet" href="../../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css' %}" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Include google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -74,100 +76,13 @@
         {% include 'header.html' %}
             <!-- main body start -->
             <main>
-                
-                <!-- sidebar section start -->
-                <section class="sidebar_section">
-                    <div class="sidebar_content_wrap">
-                        <div class="container">
-                            <div class="row">
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                                    <div class="offcanvas-header align-items-center">
-                                        <h5 class="mb-0">Organic Products</h5>
-                                        <button type="button" class="btn-close text-reset text-end" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                    </div>
-                                    <div class="offcanvas-body">
-                                        <div class="prdc_ctg_product_content one d-flex align-items-center">
-                                            <div class="prdc_ctg_product_img d-flex justify-content-center align-items-center me-3">
-                                                <img src="{% static 'assets/images/category/cat6.png' %}" alt="image_not_found">
-                                            </div>
-                                            <div class="prdc_ctg_product_text">
-                                                <div class="prdc_ctg_product_title my-2">
-                                                    <h5>Organic Cabbage</h5>
-                                                </div>
-                                                <div class="prdc_ctg_product_price mt-1 product_price">
-                                                    <span class="sale_price pe-1">$50.00</span>
-                                                    <del>$70.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="prdc_ctg_product_content one d-flex align-items-center">
-                                            <div class="prdc_ctg_product_img d-flex justify-content-center align-items-center me-3">
-                                                <img src="{% static 'assets/images/category/cat7.png' %}" alt="image_not_found">
-                                            </div>
-                                            <div class="prdc_ctg_product_text">
-                                                <div class="prdc_ctg_product_title my-2">
-                                                    <h5>Organic Cabbage</h5>
-                                                </div>
-                                                <div class="prdc_ctg_product_price mt-1 product_price">
-                                                    <span class="sale_price pe-1">$40.00</span>
-                                                    <del>$60.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="prdc_ctg_product_content two d-flex align-items-center">
-                                            <div class="prdc_ctg_product_img d-flex justify-content-center align-items-center me-3">
-                                                <img src="{% static 'assets/images/category/cat8.png' %}" alt="image_not_found">
-                                            </div>
-                                            <div class="prdc_ctg_product_text">
-                                                <div class="prdc_ctg_product_title my-2">
-                                                    <h5>Organic Cabbage</h5>
-                                                </div>
-                                                <div class="prdc_ctg_product_price mt-1 product_price">
-                                                    <span class="sale_price pe-1">$70.00</span>
-                                                    <del>$90.00</del>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="total_price">
-                                            <ul class="ul_li_block mb_30 clearfix">
-                                                <li>
-                                                    <span>Subtotal:</span>
-                                                    <span>$215</span>
-                                                </li>
-                                                <li>
-                                                    <span>Vat 5%:</span>
-                                                    <span>$10.75</span>
-                                                </li>
-                                                <li>
-                                                    <span>Discount 15%:</span>
-                                                    <span>- $32.25</span>
-                                                </li>
-                                                <li>
-                                                    <span>Total:</span>
-                                                    <span>$191.8875</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="sidebar_btns">
-                                            <ul class="btns_group ul_li_block clearfix">
-                                                <li><a href="shop_cart.html">View Cart</a></li>
-                                                <li><a href="shop_checkout.html">Checkout</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- sidebar section end -->
-                
-                <!-- Breadcrumb section start -->
+            
+            
                 <section class="breadcrumb_sec_1 position-relative">
                     <div class="breadcrumb_wrap sec_space_mid_small" style="background-image: url({% static 'assets/images/breadcrumb/breadcrumb1.png' %});">
                         <div class="breadcrumb_cont text-center">
                             <div class="breadcrumb_title">
-                                <h2 class="text-white">Haqqımızda</h2>
+                                <h2 class="text-white">{% trans 'Haqqımızda' %}</h2>
                             </div>
                             <ul class="list-unstyled breadcrumb_item d-flex justify-content-center align-items-center text-white">
                         
@@ -177,35 +92,38 @@
                 </section>
                 <!-- Breadcrumb section end -->
                 
-                <!-- product section-2 start -->
-                <section class="product_section_2 sec_space_small" data-aos="fade-up" data-aos-duration="2000">
+                <section class="product_section_2 sec_space_xms_60" data-aos="fade-up" data-aos-duration="2000">
                     <div class="product_section_2_wrap">
                         <div class="container">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="product_gallery">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="product_gallery" data-aos="fade-up" data-aos-duration="1000">
                                         <img src="{% static 'assets/images/sales/sale8.png' %}" alt="image_not_found">
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="product_section_content about_section_content">
+                                <div class="col-md-6">
+                                    <div class="product_section_content" data-aos="fade-up" data-aos-duration="2000">
                                         <div class="product_sec_sub_title d-flex align-items-center pb-2">
                                             <i class="far fa-circle"></i>
                                             <i class="far fa-circle"></i>
                                             <i class="far fa-circle"></i>
-                                            <span class="ps-1">FRESH FROM OUR FARM</span>
+                                            <span class="ps-1">{% trans 'Fermamızdan birbaşa təzə məhsullar' %}</span>
+                                            <i class="far fa-circle"></i>
+                                            <i class="far fa-circle"></i>
+                                            <i class="far fa-circle"></i>
                                         </div>
-                                        <div class="product_section_title text-effect py-2">
-                                            <h2>Trusted Organic <font><span>F</span><span>o</span><span>o</span><span></span><span>d</span></font> Store Conscious</h2>
+                                        <div class="product_section_title py-2">
+                                            <h2>{% trans 'Kənd təsərrüfatı məhsullarının topdan və pərakəndə satışı' %}</h2>
                                         </div>
                                         <div class="product_section_subtitle position-relative">
-                                            <p class="pb-0">Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                            <p class="pb-0">{% trans 'Yalnız insan sağlamlığına deyil, eyni zamanda ətraf mühitə də qarşı məsul bir şirkət kimi, davamlı kənd təsərrüfatı tətbiqlərini dəstəkləyir və kimyəvi maddə istifadəsini minimuma endiririk.' %}</p>
                                         </div>
                                         <div class="product_section_desc">
-                                            <p>Morbi eget congue lectus. Donec eleifend ultricies urna et euismod. Sed consectetur tellus eget odio aliquet, vel vestibulum tellus sollicitudin. Morbi maximus metus eu eros tincidunt, vitae mollis ante imperdiet. Nulla </p>
+                                            <p>{% trans 'Müştərilərimizin razılığı bizim üçün əsaslıdır. Sifarişləriniz sürətli və etibarlı bir şəkildə çatdırılır, təzə və sağlam məhsullarla evinizə qədər gətirilir.' %}
+                                            </p>
                                         </div>
                                         <div class="product_section_btn">
-                                            <a href="#!"><button type="button" class="btn custom_btn load_more_1 rounded-pill px-5 py-3 text-white">Məhsullara bax <i class="fas fa-long-arrow-alt-right"></i></button></a>
+                                 
                                         </div>
                                     </div>
                                 </div>
@@ -213,8 +131,6 @@
                         </div>
                     </div>
                 </section>
-                <!-- product section-2 end -->
-                
             
  
            
@@ -247,10 +163,10 @@
                                     </div>
                                     <div class="service_content_text">
                                         <div class="service_content_title">
-                                            <h6>Ödənişsiz çatdırılma</h6>
+                                            <h6>{% trans 'Ödənişsiz çatdırılma' %}</h6>
                                         </div>
                                         <div class="service_content_sub_title">
-                                            <span>1 tondan daha yüksək məhsul çatdırılmalarına</span>
+                                            <span>{% trans '1 tondan daha yüksək məhsul çatdırılmalarına' %}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -262,10 +178,10 @@
                                     </div>
                                     <div class="service_content_text">
                                         <div class="service_content_title">
-                                            <h6>Təhlükəsiz ödəmə</h6>
+                                            <h6>{% trans 'Təhlükəsiz ödəmə' %}</h6>
                                         </div>
                                         <div class="service_content_sub_title">
-                                            <span>100% təhlükəsiz </span>
+                                            <span>{% trans '100% təhlükəsiz' %} </span>
                                         </div>
                                     </div>
                                 </div>
@@ -277,10 +193,10 @@
                                     </div>
                                     <div class="service_content_text">
                                         <div class="service_content_title">
-                                            <h6>Məhsullara zəmanət</h6>
+                                            <h6>{% trans 'Məhsullara zəmanət' %}</h6>
                                         </div>
                                         <div class="service_content_sub_title">
-                                            <span>Keyfiyyətimizə zəmanət veririk</span>
+                                            <span>{% trans 'Keyfiyyətimizə zəmanət veririk' %}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -292,10 +208,10 @@
                                     </div>
                                     <div class="service_content_text">
                                         <div class="service_content_title">
-                                            <h6>24/7 Dəstək</h6>
+                                            <h6>{% trans '24/7 Dəstək' %}</h6>
                                         </div>
                                         <div class="service_content_sub_title">
-                                            <span>İstənilən problemə anında dəstək</span>
+                                            <span>{% trans 'İstənilən problemə anında dəstək' %}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -310,7 +226,7 @@
             {% if instagram %}
             <section class="instagram_section instagram_style_1 instagram_2 position-relative sec_space_xs_70" data-aos="fade-up" data-aos-duration="2000">
                 <div class="container">
-                    <h2 class="instagram_title pb-5 text-center">Bizi instagramda izlə</h2>
+                    <h2 class="instagram_title pb-5 text-center">{% trans 'Bizi instagramda izlə' %}</h2>
                     <ul class="zoom-gallery instagram_image_content ul_li slideshow9_slider" data-slick='{"dots": false}'>
                       {% for photo in instagram %}
                         <li>
@@ -331,488 +247,7 @@
         <!-- main body end -->
         
         <!-- footer section start -->
-        <footer class="footer_section position-relative">
-            <div class="footer_section_wrap sec_top_space_50" style="background-image: url({% static 'assets/images/footer/footer.png' %})">
-                <div class="container">
-                    <div class="footer_top_content d-flex flex-column flex-lg-row justify-content-between align-items-center">
-                        <div class="footer_top_logo">
-                            <a href="about-us.html"><img src="{% static 'assets/images/logo/logo2.png' %}" alt="image_not_found"></a>
-                        </div>
-                        <div class="footer_top_subs position-relative">
-                            <input class="rounded-pill" type="search" name="search" placeholder="Your Phone Number">
-                            <a href="#!"><button type="button" class="btn custom_btn rounded-pill text-white position-absolute">Subscribe Now <i class="fas fa-long-arrow-alt-right"></i></button></a>
-                        </div>
-                        <div class="footer_top_social">
-                            <ul class="list-unstyled d-flex justify-content-end">
-                                <li class="me-3"><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                                <li class="me-3"><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="me-3"><a href="#!"><i class="fab fa-youtube"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-google-plus-g"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer_inner_content sec_space_xs_70">
-                        <div class="footer_inner_content_wrap">
-                            <div class="row">
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="footer_inner_choose_content">
-                                        <div class="footer_inner_choose_title">
-                                            <h4>
-                                                <a href="#!" class="text-white">Why People Like us</a>
-                                            </h4>
-                                        </div>
-                                        <div class="footer_inner_choose_desc pt-2">
-                                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-                                                commodo. Build your online store with WooCommerce the most popular </p>
-                                            </div>
-                                            <div class="footer_inner_choose">
-                                                <a href="#!"><button type="button" class="btn custom_btn rounded-pill px-4 text-white">View More <i class="fas fa-long-arrow-alt-right"></i></button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="footer_inner_info_content">
-                                            <div class="footer_inner_info_title">
-                                                <h4>
-                                                    <a href="#!" class="text-white">Information</a>
-                                                </h4>
-                                            </div>
-                                            <div class="footer_inner_info_item pt-2">
-                                                <ul class="list-unstyled">
-                                                    <li><a href="#!">About Us</a></li>
-                                                    <li><a href="#!">Delivery Information</a></li>
-                                                    <li><a href="#!">Privacy Policy</a></li>
-                                                    <li><a href="#!">Terms & Conditions</a></li>
-                                                    <li><a href="#!">Return Policy</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="footer_inner_acct_content">
-                                            <div class="footer_inner_acct_title">
-                                                <h4>
-                                                    <a href="#!" class="text-white">My Account</a>
-                                                </h4>
-                                            </div>
-                                            <div class="footer_inner_acct_item pt-2">
-                                                <ul class="list-unstyled">
-                                                    <li><a href="#!">My Account</a></li>
-                                                    <li><a href="#!">Shopping Cart</a></li>
-                                                    <li><a href="#!">Wishlist</a></li>
-                                                    <li><a href="#!">Order History</a></li>
-                                                    <li><a href="#!">International Orders</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="footer_inner_cotc_content">
-                                            <div class="footer_inner_ctc_title">
-                                                <h4>
-                                                    <a href="#!" class="text-white">Contact Us</a>
-                                                </h4>
-                                            </div>
-                                            <div class="footer_inner_ctc_info pt-2 text-white">
-                                                <p>Address: <font>1429 Netus Rd, NY 48247</font></p>
-                                                <p>Email: <font>Organi@gmail.com</font></p>
-                                                <p>Phone: <font>(+87) 4886-4174</font></p>
-                                                <div class="footer_inner_payment_ctc">
-                                                    <div class="footer_inner_payment_title">
-                                                        <h5 class="text-white">Payment Accepted</h5>
-                                                    </div>
-                                                    <div class="footer_inner_payment_thumb pt-3">
-                                                        <a href="#!"><img src="{% static 'assets/images/payment/payment.png' %}" alt="image_not_found"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer_bootom_content">
-                            <div class="footer_bootom_wrap">
-                               <div class="container">
-                                  <div class="row">
-                                     <div class="col-md-6">
-                                        <div class="footer_bootom_copyright">
-                                           <p>Copyright © 2022 <font>ORGANI</font> Inc. All rights reserved.</p>
-                                        </div>
-                                     </div>
-                                     <div class="col-md-6">
-                                        <div class="footer_bootom_privicy_cont d-flex justify-content-center align-items-center">
-                                           <div class="footer_bootom_privicy pe-5">
-                                              <a href="#!"><p class="priv position-relative">Privacy Policy</p></a>
-                                           </div>
-                                           <div class="footer_bootom_terms pe-5">
-                                              <p class="position-relative">Terms of Use</p>
-                                           </div>
-                                           <div class="footer_bootom_refunds">
-                                              <p>Sales and Refunds</p>
-                                           </div>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- footer section end -->
-            
-            <!-- view recently products start -->
-            
-            <div class="modal fade recent_product" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="recent_product_title">Recent Products</h2>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container">
-                                <div class="row g-2">
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="product_layout_1 overflow-hidden position-relative">
-                                            <div class="product_layout_content bg-white position-relative">
-                                                <div class="product_image_wrap">
-                                                    <a class="product_image d-flex justify-content-center align-items-center" href="product-detail.html">
-                                                        <img src="{% static 'assets/images/product/product9.png' %}" alt="image_not_found">
-                                                    </a>
-                                                    <ul class="product_badge_group ul_li_block">
-                                                        <li><span class="product_badge badge_meats position-absolute rounded-pill text-uppercase">Meats</span></li>
-                                                        <li><span class="product_badge badge_discount position-absolute rounded-pill">-27%</span></li>
-                                                    </ul>
-                                                    <ul class="product_action_btns ul_li_block d-flex">
-                                                        <li><a class="tooltips" data-placement="top" title="Search Product" href="#!"><i class="fas fa-search"></i></a></li>
-                                                        <li><a class="tooltips" data-placement="top" title="Add To Cart" href="#product_quick_view" data-bs-toggle="modal"><i class="fas fa-shopping-bag"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="rating_wrap d-flex">
-                                                    <ul class="rating_star ul_li">
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li><i class="far fa-star"></i></li>
-                                                    </ul>
-                                                    <span class="shop_review_text">( 4.0 )</span>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title">
-                                                        <a href="product-detail.html">Organic Cabbage</a>
-                                                    </h3>
-                                                    <div class="product_price">
-                                                        <span class="sale_price pe-1">$50.00</span>
-                                                        <del>$65.00</del>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="product_layout_1 overflow-hidden position-relative">
-                                            <div class="product_layout_content bg-white position-relative">
-                                                <div class="product_image_wrap">
-                                                    <a class="product_image d-flex justify-content-center align-items-center" href="product-detail.html">
-                                                        <img src="{% static 'assets/images/product/product10.png' %}" alt="image_not_found">
-                                                    </a>
-                                                    <ul class="product_badge_group ul_li_block">
-                                                        <li><span class="product_badge badge_meats position-absolute rounded-pill text-uppercase">Meats</span></li>
-                                                        <li><span class="product_badge badge_discount position-absolute rounded-pill">-27%</span></li>
-                                                    </ul>
-                                                    <ul class="product_action_btns ul_li_block d-flex">
-                                                        <li><a class="tooltips" data-placement="top" title="Search Product" href="#!"><i class="fas fa-search"></i></a></li>
-                                                        <li><a class="tooltips" data-placement="top" title="Add To Cart" href="#product_quick_view" data-bs-toggle="modal"><i class="fas fa-shopping-bag"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="rating_wrap d-flex">
-                                                    <ul class="rating_star ul_li">
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li><i class="far fa-star"></i></li>
-                                                    </ul>
-                                                    <span class="shop_review_text">( 4.0 )</span>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title">
-                                                        <a href="product-detail.html">Organic Cabbage</a>
-                                                    </h3>
-                                                    <div class="product_price">
-                                                        <span class="sale_price pe-1">$50.00</span>
-                                                        <del>$65.00</del>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="product_layout_1 overflow-hidden position-relative">
-                                            <div class="product_layout_content bg-white position-relative">
-                                                <div class="product_image_wrap">
-                                                    <a class="product_image d-flex justify-content-center align-items-center" href="product-detail.html">
-                                                        <img src="{% static 'assets/images/product/product11.png' %}" alt="image_not_found">
-                                                    </a>
-                                                    <ul class="product_badge_group ul_li_block">
-                                                        <li><span class="product_badge badge_meats position-absolute rounded-pill text-uppercase">Meats</span></li>
-                                                        <li><span class="product_badge badge_discount position-absolute rounded-pill">-27%</span></li>
-                                                    </ul>
-                                                    <ul class="product_action_btns ul_li_block d-flex">
-                                                        <li><a class="tooltips" data-placement="top" title="Search Product" href="#!"><i class="fas fa-search"></i></a></li>
-                                                        <li><a class="tooltips" data-placement="top" title="Add To Cart" href="#product_quick_view" data-bs-toggle="modal"><i class="fas fa-shopping-bag"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="rating_wrap d-flex">
-                                                    <ul class="rating_star ul_li">
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li><i class="far fa-star"></i></li>
-                                                    </ul>
-                                                    <span class="shop_review_text">( 4.0 )</span>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title">
-                                                        <a href="product-detail.html">Organic Cabbage</a>
-                                                    </h3>
-                                                    <div class="product_price">
-                                                        <span class="sale_price pe-1">$50.00</span>
-                                                        <del>$65.00</del>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="product_layout_1 overflow-hidden position-relative">
-                                            <div class="product_layout_content bg-white position-relative">
-                                                <div class="product_image_wrap">
-                                                    <a class="product_image d-flex justify-content-center align-items-center" href="product-detail.html">
-                                                        <img src="{% static 'assets/images/product/product12.png' %}" alt="image_not_found">
-                                                    </a>
-                                                    <ul class="product_badge_group ul_li_block">
-                                                        <li><span class="product_badge badge_meats position-absolute rounded-pill text-uppercase">Meats</span></li>
-                                                        <li><span class="product_badge badge_discount position-absolute rounded-pill">-27%</span></li>
-                                                    </ul>
-                                                    <ul class="product_action_btns ul_li_block d-flex">
-                                                        <li><a class="tooltips" data-placement="top" title="Search Product" href="#!"><i class="fas fa-search"></i></a></li>
-                                                        <li><a class="tooltips" data-placement="top" title="Add To Cart" href="#product_quick_view" data-bs-toggle="modal"><i class="fas fa-shopping-bag"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="rating_wrap d-flex">
-                                                    <ul class="rating_star ul_li">
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li><i class="far fa-star"></i></li>
-                                                    </ul>
-                                                    <span class="shop_review_text">( 4.0 )</span>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title">
-                                                        <a href="product-detail.html">Organic Cabbage</a>
-                                                    </h3>
-                                                    <div class="product_price">
-                                                        <span class="sale_price pe-1">$50.00</span>
-                                                        <del>$65.00</del>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="product_layout_1 overflow-hidden position-relative">
-                                            <div class="product_layout_content bg-white position-relative">
-                                                <div class="product_image_wrap">
-                                                    <a class="product_image d-flex justify-content-center align-items-center" href="product-detail.html">
-                                                        <img src="{% static 'assets/images/product/product9.png' %}" alt="image_not_found">
-                                                    </a>
-                                                    <ul class="product_badge_group ul_li_block">
-                                                        <li><span class="product_badge badge_meats position-absolute rounded-pill text-uppercase">Meats</span></li>
-                                                        <li><span class="product_badge badge_discount position-absolute rounded-pill">-27%</span></li>
-                                                    </ul>
-                                                    <ul class="product_action_btns ul_li_block d-flex">
-                                                        <li><a class="tooltips" data-placement="top" title="Search Product" href="#!"><i class="fas fa-search"></i></a></li>
-                                                        <li><a class="tooltips" data-placement="top" title="Add To Cart" href="#product_quick_view" data-bs-toggle="modal"><i class="fas fa-shopping-bag"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="rating_wrap d-flex">
-                                                    <ul class="rating_star ul_li">
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li><i class="far fa-star"></i></li>
-                                                    </ul>
-                                                    <span class="shop_review_text">( 4.0 )</span>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title">
-                                                        <a href="product-detail.html">Organic Cabbage</a>
-                                                    </h3>
-                                                    <div class="product_price">
-                                                        <span class="sale_price pe-1">$50.00</span>
-                                                        <del>$65.00</del>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                        <div class="product_layout_1 overflow-hidden position-relative">
-                                            <div class="product_layout_content bg-white position-relative">
-                                                <div class="product_image_wrap">
-                                                    <a class="product_image d-flex justify-content-center align-items-center" href="product-detail.html">
-                                                        <img src="{% static 'assets/images/product/product10.png' %}" alt="image_not_found">
-                                                    </a>
-                                                    <ul class="product_badge_group ul_li_block">
-                                                        <li><span class="product_badge badge_meats position-absolute rounded-pill text-uppercase">Meats</span></li>
-                                                        <li><span class="product_badge badge_discount position-absolute rounded-pill">-27%</span></li>
-                                                    </ul>
-                                                    <ul class="product_action_btns ul_li_block d-flex">
-                                                        <li><a class="tooltips" data-placement="top" title="Search Product" href="#!"><i class="fas fa-search"></i></a></li>
-                                                        <li><a class="tooltips" data-placement="top" title="Add To Cart" href="#product_quick_view" data-bs-toggle="modal"><i class="fas fa-shopping-bag"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="rating_wrap d-flex">
-                                                    <ul class="rating_star ul_li">
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li class="active"><i class="fas fa-star"></i></li>
-                                                        <li><i class="far fa-star"></i></li>
-                                                    </ul>
-                                                    <span class="shop_review_text">( 4.0 )</span>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title">
-                                                        <a href="product-detail.html">Organic Cabbage</a>
-                                                    </h3>
-                                                    <div class="product_price">
-                                                        <span class="sale_price pe-1">$50.00</span>
-                                                        <del>$65.00</del>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- view recently products end -->
-            
-            <!-- quick-view start -->
-            
-            <div class="modal fade quick_view" id="product_quick_view" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content position-relative">
-                        <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
-                        <div class="modal-body p-0">
-                            <div class="container-fluid-full product10_wrap sec_space_small" style="background-image: url({% static 'assets/images/backgrounds/bg17.png' %})">
-                                <div class="row justify-content-center p-5">
-                                    <div class="col-lg-6">
-                                        <div class="product10_thumb_content d-flex flex-column">
-                                            <div class="product11_slide_item">
-                                                <div class="d-flex justify-content-center align-items-center position-relative overflow-hidden">
-                                                    <img src="{% static 'assets/images/product/product40.png' %}" alt="image_not_found">
-                                                </div>
-                                                <div class="d-flex justify-content-center align-items-center position-relative overflow-hidden">
-                                                    <img src="{% static 'assets/images/product/product40.png' %}" alt="image_not_found">
-                                                </div>
-                                                <div class="d-flex justify-content-center align-items-center position-relative overflow-hidden">
-                                                    <img src="{% static 'assets/images/product/product40.png' %}" alt="image_not_found">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="product10_thumb_item product11_slide_thumb">
-                                                <div class="thumb_item">
-                                                    <a href="#!"><img src="{% static 'assets/images/product/product6.png' %}" alt="image_not_found"></a>
-                                                </div>
-                                                <div class="thumb_item">
-                                                    <a href="#!"><img src="{% static 'assets/images/product/product8.png' %}" alt="image_not_found"></a>
-                                                </div>
-                                                <div class="thumb_item">
-                                                    <a href="#!"><img src="{% static 'assets/images/product/product23.png' %}" alt="image_not_found"></a>
-                                                </div>
-                                                <div class="thumb_item">
-                                                    <a href="#!"><img src="{% static 'assets/images/product/product6.png' %}" alt="image_not_found"></a>
-                                                </div>
-                                                <div class="thumb_item">
-                                                    <a href="#!"><img src="{% static 'assets/images/product/product8.png' %}" alt="image_not_found"></a>
-                                                </div>
-                                                <div class="thumb_item">
-                                                    <a href="#!"><img src="{% static 'assets/images/product/product23.png' %}" alt="image_not_found"></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="rating_wrap d-flex justify-content-between">
-                                            <div class="rating_review_cont d-flex d-flex align-items-center">
-                                                <ul class="rating_star ul_li">
-                                                    <li class="active"><i class="fas fa-star"></i></li>
-                                                    <li class="active"><i class="fas fa-star"></i></li>
-                                                    <li class="active"><i class="fas fa-star"></i></li>
-                                                    <li class="active"><i class="fas fa-star"></i></li>
-                                                    <li><i class="far fa-star"></i></li>
-                                                </ul>
-                                                <a href="#!" class="review">Read 3 Reviews</a>
-                                            </div>
-                                            <div class="product_btn">
-                                                <a href="#"><button type="button" class="btn custom_btn rounded-pill px-4 text-white">Smoothies</button></a>
-                                            </div>
-                                        </div>
-                                        <h2 class="product_detail_title">Good Organic Products</h2>
-                                        <p class="product_detail_desc py-2">Morbi eget congue lectus. Donec eleifend ultricies urna et euismod. Sed consectetur tellus eget odio aliquet, vel vestibulum tellus sollicitudin. Morbi maximus metus eu eros tincidunt, vitae mollis ante imperdiet. Nulla imperdiet at mauris ut posuere. Nam at ultrices justo.</p>
-                                        <div class="product10_quantity_btn_wrap d-flex align-items-center">
-                                            <div class="quantity_input bg-white">
-                                                <form action="#">
-                                                    <span class="input_number_decrement">–</span>
-                                                    <input class="input_number" value="2KG">
-                                                    <span class="input_number_increment">+</span>
-                                                </form>
-                                            </div>
-                                            <a href="#"><button type="button" class="btn custom_btn rounded-pill ms-3 px-5 py-3 text-white">Order Now <i class="fas fa-long-arrow-alt-right"></i></button></a>
-                                        </div>
-                                        <div class="product_tags_wrap d-flex align-items-center mt-5">
-                                            <h6 class="product_tags_title text-uppercase">tags:</h6>
-                                            <div class="tags_item d-flex align-items-center">
-                                                <a href="#!">T-shirt,</a>
-                                                <a class="ms-1" href="#!">Clothes,</a>
-                                                <a class="ms-1" href="#!">Fashion,</a>
-                                                <a class="ms-1" href="#!">Shop</a>
-                                            </div>
-                                        </div>
-                                        <div class="product_social_links d-flex align-items-center">
-                                            <h6 class="product_social_title text-uppercase">share:</h6>
-                                            <ul class="list-unstyled d-flex mb-0">
-                                                <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="#!"><i class="fab fa-google-plus-g"></i></a></li>
-                                                <li><a href="#!"><i class="fab fa-pinterest-p"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- quick-view end -->
-            
-        </div>
+        {% include 'footer.html' %}
         <!-- body wrap end -->
 
     <!-- Include jquery js -->
@@ -841,5 +276,4 @@
         
     </body>
     
-<!-- Mirrored from jthemes.net/themes/html/organic/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 11:31:20 GMT -->
 </html>
