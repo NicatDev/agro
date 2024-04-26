@@ -9,10 +9,7 @@ local_settings.py
 # Database
 db.sqlite3
 *.sqlite3
-
-
-
-
+db.sqlite
 
 # Virtual environment
 myenv/
