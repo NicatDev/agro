@@ -85,7 +85,7 @@ class Product(MetaMixin,BaseMixin):
     name = models.CharField(max_length = 200)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount_percent = models.SmallIntegerField(default=0)
-    description = models.TextField()
+    description = models.TextField(null=True,blank=True)
     stock = models.BooleanField(default=True)
     stock_value = models.IntegerField(null=True,blank=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE,null=True,blank=True,related_name="products")
