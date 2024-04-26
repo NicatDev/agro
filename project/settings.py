@@ -28,6 +28,18 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
+    'http://135.181.42.192/',
+    'http://135.181.42.192:90/',
+]
+# Application definition
+CSRF_TRUSTED_ORIGINS = [
+    'http://135.181.42.192/',
+    'http://135.181.42.192:90/',
+  
+]
+
+
+CORS_ALLOWED_ORIGINS = [
     'https://test.victoriassirri.az',
     'https://victoriassirri.az',
 ]
@@ -145,9 +157,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
