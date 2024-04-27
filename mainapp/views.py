@@ -100,8 +100,9 @@ def shop(request):
     products = paginator.get_page(page)
     total_pages = [x+1 for x in range(paginator.num_pages)]
 
-    trending_products = Product.objects.all()[:]
+    trending_products = Product.objects.all()[0:5]
     context = {
+        'trending_products':trending_products,
         'products':products,
         'total_pages':total_pages,
         'categories':categories
