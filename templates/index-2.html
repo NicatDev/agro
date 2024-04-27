@@ -446,7 +446,7 @@
                                     <div class="tab-pane  fade {% if forloop.first %} show active {% endif %}" id="pills-{{ category.slug }}" role="tabpanel"
                                         aria-labelledby="pills-{{ category.slug }}-tab">
                                         <div class="row g-4">
-                                            {% for product in category.products.all|slice:":5" %}
+                                            {% for product in category.products.all|slice:":6" %}
                                             <div class="col-sm-6 col-lg-4">
                                                 <div
                                                     class="product_ctg_content_3 d-flex justify-content-center align-items-center position-relative">
@@ -463,8 +463,12 @@
                                                             </a>
                                                         </div>
                                                         <div class="prdc_ctg_product_price mt-1 product_price">
+                                                            {% if product.get_discount_price > 0 %}
                                                             <span class="sale_price pe-1">{{ product.get_discount_price }}</span>
+                                                            {% endif %}
+                                                            {% if product.price > 0 %}
                                                             <del>{{ product.price }}</del>
+                                                            {% endif %}
                                                         </div>
                                                         <ul class="product_action_btns ul_li_block d-flex">
                                                             <li><a data-bs-toggle="tooltip" title="Keçid et"
@@ -596,8 +600,12 @@
                                             <a href="{% url 'shopSingle' product.slug %}">{{ product.name }}</a>
                                         </h3>
                                         <div class="product_price">
+                                            {% if product.get_discount_price > 0 %}
                                             <span class="sale_price pe-1">{{ product.get_discount_price }}</span>
+                                            {% endif %}
+                                            {% if product.price > 0 %}
                                             <del>{{ product.price }}</del>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
