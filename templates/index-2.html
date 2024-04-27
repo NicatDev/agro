@@ -584,9 +584,11 @@
                                             <li><span
                                                     class="product_badge badge_meats position-absolute rounded-pill text-uppercase">{{ product.category.name }}</span>
                                             </li>
+                                            {% if product.discount_percent > 0 %}
                                             <li><span
                                                     class="product_badge badge_discount position-absolute rounded-pill">{{ product.discount_percent }}%</span>
                                             </li>
+                                            {% endif %}
                                         </ul>
                                         <ul class="product_action_btns ul_li_block d-flex">
                                             <li><a class="tooltips" data-placement="top" title="Keçid et"
