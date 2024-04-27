@@ -155,8 +155,12 @@
                                  <div class="trending_text">
                                     <span style="cursor:pointer" onclick="goUrl('{% url "shopSingle" product.slug %}')">{{product.name}}</span>
                                     <div class="trending_price">
+                                       {% if product.price > 0 %}
                                        <del>{{ product.price }}</del>
+                                       {% endif %}
+                                       {% if product.discount_percent > 0 %}
                                        <p>{{ product.get_discount_price }}</p>
+                                       {% endif %}
                                     </div>
                                   
                                  </div>
