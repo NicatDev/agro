@@ -446,7 +446,7 @@
                                     <div class="tab-pane  fade {% if forloop.first %} show active {% endif %}" id="pills-{{ category.slug }}" role="tabpanel"
                                         aria-labelledby="pills-{{ category.slug }}-tab">
                                         <div class="row g-4">
-                                            {% for product in category.products.all %}
+                                            {% for product in category.products.all|slice:":5" %}
                                             <div class="col-sm-6 col-lg-4">
                                                 <div
                                                     class="product_ctg_content_3 d-flex justify-content-center align-items-center position-relative">
