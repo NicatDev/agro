@@ -242,7 +242,13 @@
                                 </div>
                                 <div class="banner_title2">
                                     <h1>{% trans 'Organik Meyvə və Tərəvəz' %} <br><font class="text-effect">
+                                        {% if "/ru/" in request.get_full_path %}
+                                            <span>З</span><span>д</span><span>о</span><span>р</span><span>о</span><span>в</span><span>ы</span><span>й</span>
+                                            {% elif "/en/" in request.get_full_path %}
+                                            <span>H</span><span>e</span><span>a</span><span>l</span><span>t</span><span>h</span><span>y</span>
+                                            {% else %}
                                             <span>S</span><span>a</span><span>ğ</span><span>l</span><span>a</span><span>m</span>
+                                            {% endif %}
                                         </font>
                                     </h1>
                                 </div>
