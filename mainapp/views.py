@@ -95,7 +95,7 @@ def shop(request):
         product_query = product_query.filter(
         Q(name__icontains=request.GET.get('search')) | Q(description__icontains=request.GET.get('search'))
     )
-    paginator = Paginator(product_query, 4)
+    paginator = Paginator(product_query, 12)
     page = request.GET.get("page", 1)
     products = paginator.get_page(page)
     total_pages = [x+1 for x in range(paginator.num_pages)]
