@@ -80,11 +80,12 @@
                                     <li class="nav-item nav_item_has_child px-2">
                                         <a class="nav-link" href="{% url 'home' %}">{% trans 'Əsas səhifə' %}</a>
                                     </li>
-                                    <li class="nav-item nav_item_has_child px-2">
-                                        <a class="nav-link" href="{% url 'shop' %}">{% trans 'Məhsullar' %}</a>
-                                    </li>
+                                 
                                     <li class="nav-item nav_item_has_child px-2">
                                         <a class="nav-link" href="{% url 'about' %}">{% trans 'Haqqımızda' %}</a>
+                                    </li>
+                                    <li class="nav-item nav_item_has_child px-2">
+                                        <a class="nav-link" href="{% url 'shop' %}">{% trans 'Məhsullar' %}</a>
                                     </li>
                                     <li class="nav-item nav_item_has_child px-2">
                                         <a class="nav-link" href="{% url 'blogs' %}">{% trans 'Bloqlar' %}</a>
@@ -175,15 +176,16 @@
                                           
                                         </li>
                                         <li class="nav-item pe-4 dropdown">
-                                            <a class="nav-link" href="{% url 'shop' %}" id="shop_submenu" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Məhsullar' %} </a>
-                                         
-                                        </li>
-                                        <li class="nav-item pe-4 dropdown">
                                             <a class="nav-link" href="{% url 'about' %}" id="blog_submenu" role="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Haqqımızda' %}</a>
                                        
                                         </li>
+                                        <li class="nav-item pe-4 dropdown">
+                                            <a class="nav-link" href="{% url 'shop' %}" id="shop_submenu" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Məhsullar' %} </a>
+                                         
+                                        </li>
+                                       
                                         <li class="nav-item pe-5">
                                             <a class="nav-link" href="{% url 'blogs' %}">{% trans 'Bloqlar' %}</a>
                                         </li>
@@ -471,7 +473,7 @@
                                                             {% endif %}
                                                         </div>
                                                         <ul class="product_action_btns ul_li_block d-flex">
-                                                            <li><a data-bs-toggle="tooltip" title="Keçid et"
+                                                            <li><a data-bs-toggle="tooltip" title="{% trans 'Keçid et' %}"
                                                                     data-bs-placement="top"
                                                                     href="{% url 'shopSingle' product.slug %}"><i class="fas fa-search"></i></a></li>
                                               

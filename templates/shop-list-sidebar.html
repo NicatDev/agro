@@ -190,7 +190,12 @@
                                        </li>
                                     
                                        <span class="show_result">{% if products.paginator.count > 0 %}
+                                          {% if "/ru/" in request.get_full_path %}
+                                          {{ products.start_index }}–{{ products.end_index }} из {{ products.paginator.count }} продуктов
+                                          {% endif %}
+                                          {% if "/az/" in request.get_full_path %}
                                           {{ products.paginator.count }} məhsuldan  {{ products.start_index }}–{{ products.end_index }} 
+                                          {% endif %}
                                       {% else %}
                                       {% trans 'Məhsul yoxdur' %}
                                       {% endif %}</span>

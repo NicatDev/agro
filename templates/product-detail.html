@@ -110,7 +110,9 @@
                                   
                                 </div>
                                 <h2 class="product_detail_title">{{ product.name }}</h2>
+                                {% if product.description %}
                                 <p class="product_detail_desc py-2">{{ product.description }} </p>
+                                {% endif %}
                                 <div class="row mt-5">
                                     
                                     <div class="col-lg-12">
@@ -120,12 +122,12 @@
                                                 <table class="table">
                                                     <tbody>
                                                         <tr>
-                                                            <th scope="row">Kateqoriya</th>
+                                                            <th scope="row">{% trans 'Kateqoriya' %}</th>
                                                             <td>{{ product.category.name }}</td>
                                                         </tr>
                                                         {% if product.stock_value %}
                                                         <tr>
-                                                            <th scope="row">Stok</th>
+                                                            <th scope="row">{% trans 'Stok' %}</th>
                                                             <td>{{ product.stock_value }}</td>
                                                         </tr>
                                                         {% endif %}

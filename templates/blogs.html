@@ -108,7 +108,7 @@
                                         </div>
                                         <p class="grid_desc">{{ blog.content|slice:300 }}</p>
                                         <a href="{% url 'blogSingle' blog.slug %}"><button type="button"
-                                                class="btn custom_btn load_more_1 rounded-pill px-3 px-sm-5 py-2 py-sm-3 text-white">Daha ətraflı <i class="fas fa-long-arrow-alt-right"></i></button></a>
+                                                class="btn custom_btn load_more_1 rounded-pill px-3 px-sm-5 py-2 py-sm-3 text-white">{% trans 'Daha ətraflı' %} <i class="fas fa-long-arrow-alt-right"></i></button></a>
                                     </div>
                                 </div>
                                 {% endfor %}

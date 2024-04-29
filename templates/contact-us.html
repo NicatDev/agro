@@ -156,24 +156,17 @@
                             };
                             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                             if (!emailRegex.test($("#email").val())) {
-                      
+                                console.log($("#email").val(),'---')
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Xəta',
                                     text: "{% trans 'Zəhmət olmasa e-poçt ünvanınının düzgünlüyünü yoxlayın' %}",
                                 });
                                 return;
+                            }else{
+                                console.log($("#email").val())
                             }
-                            else{
-                          
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Xəta',
-                                    text: "{% trans 'fZəhmət olmasa e-poçt ünvanınının düzgünlüyünü yoxlayın' %}",
-                                });
-                                return;
-                            }
-                            // Check if any field is empty
+                        
                             if (Object.values(formData).some(value => value === "")) {
                                 // Display SweetAlert for empty fields
                                 Swal.fire({
@@ -245,7 +238,7 @@
                                         <i class="far fa-circle"></i>
                                     </div>
                                     <h4 class="address_title">{% trans 'E-poçt' %}</h4>
-                                    <p class="address_desc">mail.ru</p>
+                                    <p class="address_desc">info@muslumagro.az</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4 text-center">
@@ -263,7 +256,7 @@
                                         <i class="far fa-circle"></i>
                                     </div>
                                     <h4 class="address_title">{% trans 'Ünvan' %}</h4>
-                                    <p class="address_desc">855 Road Broklyn Street, 600 New York, USA</p>
+                                    <p class="address_desc">Bakı şəhəri, Qaradaq rayonu, Lökbatan qəsəbəsi, Xocasən yolu, 57. 3-cü korpus. Arxa N2 sahəsi.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4 text-center">
@@ -282,7 +275,7 @@
                                         <i class="far fa-circle"></i>
                                     </div>
                                     <h4 class="address_title">{% trans 'Əlaqə nömrəsi' %}</h4>
-                                    <p class="address_desc">222 555 999 needhelp@organi.com</p>
+                                    <p class="address_desc">+994 50 221 93 63</p>
                                 </div>
                             </div>
                         </div>
